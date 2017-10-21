@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         UIApplication.shared.statusBarStyle = .lightContent
-        SquabDataCenter.sharedInstance.domain = "http://api.letsbuildthatapp.com/"
+        SquabDataCenter.sharedInstance.domain = "http:/squab.avartaka.com"
         
         
         let navigationController = UINavigationController.init(rootViewController: SQLandingPageController())

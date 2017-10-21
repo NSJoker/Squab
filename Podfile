@@ -12,5 +12,7 @@ pod 'Fabric'
 pod 'SDWebImage', '~>3.7'
 pod 'SwiftyJSON', '3.0.0'
 pod 'NVActivityIndicatorView'
+pod 'MXSegmentedPager'
+pod 'CountryPickerSwift'
 
 end

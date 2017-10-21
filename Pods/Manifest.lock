@@ -1,6 +1,14 @@
 PODS:
   - Alamofire (4.0.1)
+  - CountryPickerSwift (1.4.5)
   - Fabric (1.6.13)
+  - HMSegmentedControl (1.5.3)
+  - MXPagerView (0.2.1)
+  - MXParallaxHeader (0.6.1)
+  - MXSegmentedPager (3.3.0):
+    - HMSegmentedControl (= 1.5.3)
+    - MXPagerView (= 0.2.1)
+    - MXParallaxHeader (= 0.6.1)
   - NVActivityIndicatorView (4.0.0):
     - NVActivityIndicatorView/Presenter (= 4.0.0)
   - NVActivityIndicatorView/Presenter (4.0.0)
@@ -12,7 +20,9 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.0.1)
+  - CountryPickerSwift
   - Fabric
+  - MXSegmentedPager
   - NVActivityIndicatorView
   - SDWebImage (~> 3.7)
   - SwiftMessages (= 3.3.3)
@@ -20,12 +30,17 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  CountryPickerSwift: be2cf0dc41887d8b16ea65ae263a70adb0cc953a
   Fabric: 2fb5676bc811af011a04513451f463dac6803206
+  HMSegmentedControl: 7c6145afb50f26cec5f3243082f6f12b9f41318f
+  MXPagerView: ede184b5191b2ed689ccf05a750a9978cce42414
+  MXParallaxHeader: 858c403532ed933b381556a81ce333d7065ad182
+  MXSegmentedPager: a35ebaf939e1629f24db3bb26653c1c557362f59
   NVActivityIndicatorView: 54c9b93b6f25a4f467512680c0c90c09a1095cf2
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SwiftMessages: 09cea3336e3fb63c3578983c8aac65acaa6d884a
   SwiftyJSON: f57b2b44bc166617372d1c70773591fe9f0f5fd4
 
-PODFILE CHECKSUM: 4a232b497a5fac5d51b975eea60b62e43f3613ff
+PODFILE CHECKSUM: a6ac965cd4db30f9e944d64181dd4a4ee0178569
 
 COCOAPODS: 1.2.1

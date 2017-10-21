@@ -14,6 +14,8 @@
 		6C0B87041F9A3D460039CAB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C0B87021F9A3D460039CAB1 /* LaunchScreen.storyboard */; };
 		6C0B870E1F9A3DB30039CAB1 /* SQLandingPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0B870C1F9A3DB20039CAB1 /* SQLandingPageController.swift */; };
 		6C0B870F1F9A3DB30039CAB1 /* SQLandingPageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C0B870D1F9A3DB30039CAB1 /* SQLandingPageController.xib */; };
+		6C2975251F9B3BC300917AF6 /* SQCountryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2975241F9B3BC300917AF6 /* SQCountryPicker.swift */; };
+		6C2975271F9B3BCE00917AF6 /* SQCountryPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C2975261F9B3BCE00917AF6 /* SQCountryPicker.xib */; };
 		6C3DCE311F9A469F00191F98 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3DCE301F9A469F00191F98 /* AppConstants.swift */; };
 		6C3DCE341F9A4F1700191F98 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3DCE331F9A4F1700191F98 /* UIColorExtension.swift */; };
 		6C3DCE361F9A4F5E00191F98 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3DCE351F9A4F5E00191F98 /* UIImageViewExtension.swift */; };
@@ -21,6 +23,12 @@
 		6C3DCE3B1F9A628D00191F98 /* SquabProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3DCE3A1F9A628D00191F98 /* SquabProgressIndicator.swift */; };
 		6C3DCE3D1F9A64D000191F98 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3DCE3C1F9A64D000191F98 /* UIViewExtension.swift */; };
 		6C3DCE3F1F9A6CBC00191F98 /* SquabDataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3DCE3E1F9A6CBC00191F98 /* SquabDataCenter.swift */; };
+		6CB3F61F1F9B592500F39FAF /* SQOTPEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB3F61D1F9B592500F39FAF /* SQOTPEntryController.swift */; };
+		6CB3F6201F9B592500F39FAF /* SQOTPEntryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CB3F61E1F9B592500F39FAF /* SQOTPEntryController.xib */; };
+		6CDEC45D1F9B969900A25353 /* SQLoginPhoneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDEC45C1F9B95CF00A25353 /* SQLoginPhoneModel.swift */; };
+		6CDEC45F1F9BB83900A25353 /* SquabUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDEC45E1F9BB83900A25353 /* SquabUserManager.swift */; };
+		6CDEC4631F9BBD0C00A25353 /* SQUserDetailsEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDEC4611F9BBD0C00A25353 /* SQUserDetailsEntryController.swift */; };
+		6CDEC4641F9BBD0C00A25353 /* SQUserDetailsEntryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CDEC4621F9BBD0C00A25353 /* SQUserDetailsEntryController.xib */; };
 		CAB3DD940BE5C7973E7A2959 /* Pods_Squab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC8D62C51BFF0688C1DD0A4 /* Pods_Squab.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +44,8 @@
 		6C0B87051F9A3D460039CAB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C0B870C1F9A3DB20039CAB1 /* SQLandingPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SQLandingPageController.swift; path = Screens/LandingPage/SQLandingPageController.swift; sourceTree = "<group>"; };
 		6C0B870D1F9A3DB30039CAB1 /* SQLandingPageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SQLandingPageController.xib; path = Screens/LandingPage/SQLandingPageController.xib; sourceTree = "<group>"; };
+		6C2975241F9B3BC300917AF6 /* SQCountryPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SQCountryPicker.swift; path = Screens/LandingPage/SQCountryPicker.swift; sourceTree = "<group>"; };
+		6C2975261F9B3BCE00917AF6 /* SQCountryPicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SQCountryPicker.xib; path = Screens/LandingPage/SQCountryPicker.xib; sourceTree = "<group>"; };
 		6C3DCE301F9A469F00191F98 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		6C3DCE331F9A4F1700191F98 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIColorExtension.swift; path = Extensions/UIColorExtension.swift; sourceTree = "<group>"; };
 		6C3DCE351F9A4F5E00191F98 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIImageViewExtension.swift; path = Extensions/UIImageViewExtension.swift; sourceTree = "<group>"; };
@@ -43,6 +53,12 @@
 		6C3DCE3A1F9A628D00191F98 /* SquabProgressIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SquabProgressIndicator.swift; path = Helpers/SquabProgressIndicator.swift; sourceTree = "<group>"; };
 		6C3DCE3C1F9A64D000191F98 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIViewExtension.swift; path = Extensions/UIViewExtension.swift; sourceTree = "<group>"; };
 		6C3DCE3E1F9A6CBC00191F98 /* SquabDataCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SquabDataCenter.swift; path = Helpers/SquabDataCenter.swift; sourceTree = "<group>"; };
+		6CB3F61D1F9B592500F39FAF /* SQOTPEntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SQOTPEntryController.swift; path = Screens/OTPPage/SQOTPEntryController.swift; sourceTree = "<group>"; };
+		6CB3F61E1F9B592500F39FAF /* SQOTPEntryController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SQOTPEntryController.xib; path = Screens/OTPPage/SQOTPEntryController.xib; sourceTree = "<group>"; };
+		6CDEC45C1F9B95CF00A25353 /* SQLoginPhoneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SQLoginPhoneModel.swift; path = Models/SQLoginPhoneModel.swift; sourceTree = "<group>"; };
+		6CDEC45E1F9BB83900A25353 /* SquabUserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SquabUserManager.swift; path = Helpers/SquabUserManager.swift; sourceTree = "<group>"; };
+		6CDEC4611F9BBD0C00A25353 /* SQUserDetailsEntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SQUserDetailsEntryController.swift; path = Screens/UserDetailsEntry/SQUserDetailsEntryController.swift; sourceTree = "<group>"; };
+		6CDEC4621F9BBD0C00A25353 /* SQUserDetailsEntryController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SQUserDetailsEntryController.xib; path = Screens/UserDetailsEntry/SQUserDetailsEntryController.xib; sourceTree = "<group>"; };
 		FAC8D62C51BFF0688C1DD0A4 /* Pods_Squab.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Squab.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -86,6 +102,7 @@
 				6C0B87021F9A3D460039CAB1 /* LaunchScreen.storyboard */,
 				6C0B87051F9A3D460039CAB1 /* Info.plist */,
 				6C3DCE301F9A469F00191F98 /* AppConstants.swift */,
+				6CDEC4591F9B94DA00A25353 /* Models */,
 				6C3DCE391F9A624F00191F98 /* Helpers */,
 				6C3DCE321F9A4EBE00191F98 /* Extensions */,
 				6C0B870B1F9A3D750039CAB1 /* Screens */,
@@ -96,7 +113,7 @@
 		6C0B870B1F9A3D750039CAB1 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				6C0B87101F9A3DBA0039CAB1 /* LandingPage */,
+				6CB3F6221F9B593B00F39FAF /* EntryPages */,
 			);
 			name = Screens;
 			sourceTree = "<group>";
@@ -106,6 +123,8 @@
 			children = (
 				6C0B870C1F9A3DB20039CAB1 /* SQLandingPageController.swift */,
 				6C0B870D1F9A3DB30039CAB1 /* SQLandingPageController.xib */,
+				6C2975241F9B3BC300917AF6 /* SQCountryPicker.swift */,
+				6C2975261F9B3BCE00917AF6 /* SQCountryPicker.xib */,
 			);
 			name = LandingPage;
 			sourceTree = "<group>";
@@ -126,8 +145,45 @@
 			children = (
 				6C3DCE3A1F9A628D00191F98 /* SquabProgressIndicator.swift */,
 				6C3DCE3E1F9A6CBC00191F98 /* SquabDataCenter.swift */,
+				6CDEC45E1F9BB83900A25353 /* SquabUserManager.swift */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		6CB3F61C1F9B58F200F39FAF /* OTPPage */ = {
+			isa = PBXGroup;
+			children = (
+				6CB3F61D1F9B592500F39FAF /* SQOTPEntryController.swift */,
+				6CB3F61E1F9B592500F39FAF /* SQOTPEntryController.xib */,
+			);
+			name = OTPPage;
+			sourceTree = "<group>";
+		};
+		6CB3F6221F9B593B00F39FAF /* EntryPages */ = {
+			isa = PBXGroup;
+			children = (
+				6CDEC4601F9BBCE400A25353 /* UserDetailsEntry */,
+				6CB3F61C1F9B58F200F39FAF /* OTPPage */,
+				6C0B87101F9A3DBA0039CAB1 /* LandingPage */,
+			);
+			name = EntryPages;
+			sourceTree = "<group>";
+		};
+		6CDEC4591F9B94DA00A25353 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6CDEC45C1F9B95CF00A25353 /* SQLoginPhoneModel.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		6CDEC4601F9BBCE400A25353 /* UserDetailsEntry */ = {
+			isa = PBXGroup;
+			children = (
+				6CDEC4611F9BBD0C00A25353 /* SQUserDetailsEntryController.swift */,
+				6CDEC4621F9BBD0C00A25353 /* SQUserDetailsEntryController.xib */,
+			);
+			name = UserDetailsEntry;
 			sourceTree = "<group>";
 		};
 		715AC3078E8787865C5087D4 /* Frameworks */ = {
@@ -210,7 +266,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CDEC4641F9BBD0C00A25353 /* SQUserDetailsEntryController.xib in Resources */,
 				6C0B87041F9A3D460039CAB1 /* LaunchScreen.storyboard in Resources */,
+				6C2975271F9B3BCE00917AF6 /* SQCountryPicker.xib in Resources */,
+				6CB3F6201F9B592500F39FAF /* SQOTPEntryController.xib in Resources */,
 				6C0B87011F9A3D460039CAB1 /* Assets.xcassets in Resources */,
 				6C0B870F1F9A3DB30039CAB1 /* SQLandingPageController.xib in Resources */,
 				6C0B86FF1F9A3D460039CAB1 /* Main.storyboard in Resources */,
@@ -274,10 +333,15 @@
 			files = (
 				6C0B86FC1F9A3D460039CAB1 /* ViewController.swift in Sources */,
 				6C0B86FA1F9A3D460039CAB1 /* AppDelegate.swift in Sources */,
+				6CB3F61F1F9B592500F39FAF /* SQOTPEntryController.swift in Sources */,
 				6C3DCE361F9A4F5E00191F98 /* UIImageViewExtension.swift in Sources */,
 				6C3DCE341F9A4F1700191F98 /* UIColorExtension.swift in Sources */,
+				6CDEC45F1F9BB83900A25353 /* SquabUserManager.swift in Sources */,
 				6C0B870E1F9A3DB30039CAB1 /* SQLandingPageController.swift in Sources */,
+				6CDEC4631F9BBD0C00A25353 /* SQUserDetailsEntryController.swift in Sources */,
 				6C3DCE3F1F9A6CBC00191F98 /* SquabDataCenter.swift in Sources */,
+				6C2975251F9B3BC300917AF6 /* SQCountryPicker.swift in Sources */,
+				6CDEC45D1F9B969900A25353 /* SQLoginPhoneModel.swift in Sources */,
 				6C3DCE3B1F9A628D00191F98 /* SquabProgressIndicator.swift in Sources */,
 				6C3DCE3D1F9A64D000191F98 /* UIViewExtension.swift in Sources */,
 				6C3DCE381F9A529500191F98 /* UIViewControllerExtension.swift in Sources */,

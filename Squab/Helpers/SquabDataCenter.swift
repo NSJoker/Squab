@@ -17,7 +17,7 @@ enum HttpMethod : String {
     case  PUT
 }
 
-typealias returnBlock = (Data?, String?) -> Void
+typealias returnBlock = (Any?, String?) -> Void
 
 private let timeOutInterval:Double = 30.0
 
