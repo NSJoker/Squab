@@ -15,9 +15,10 @@ public class SQLoginPhoneModel:Decodable {
   private let kSQLoginPhoneModelStatusKey: String = "Status"
 
   // MARK: Properties
-  public var details: String?
-  public var status: String?
+  public var Details: String?
+  public var Status: String?
     public var selectedMobileNumber:String?
+    public var selectedCountryCode:String?
 
   // MARK: SwiftyJSON Initalizers
   /**
@@ -35,8 +36,8 @@ public class SQLoginPhoneModel:Decodable {
    - returns: An initalized instance of the class.
   */
   public init(json: JSON) {
-    details = json[kSQLoginPhoneModelDetailsKey].string
-    status = json[kSQLoginPhoneModelStatusKey].string
+    Details = json[kSQLoginPhoneModelDetailsKey].string
+    Status = json[kSQLoginPhoneModelStatusKey].string
   }
 
   /**
@@ -45,14 +46,22 @@ public class SQLoginPhoneModel:Decodable {
   */
   public func dictionaryRepresentation() -> [String: Any] {
     var dictionary: [String: Any] = [:]
-    if let value = details { dictionary[kSQLoginPhoneModelDetailsKey] = value }
-    if let value = status { dictionary[kSQLoginPhoneModelStatusKey] = value }
+    if let value = Details { dictionary[kSQLoginPhoneModelDetailsKey] = value }
+    if let value = Status { dictionary[kSQLoginPhoneModelStatusKey] = value }
     return dictionary
   }
+    
+    class func getLoginModelWith(phoneNumber:String, countryCode:String)->SQLoginPhoneModel {
+        let dict = [String:String]()
+        let model = SQLoginPhoneModel(object: JSON(dict))
+        model.selectedMobileNumber = phoneNumber
+        model.selectedCountryCode = countryCode
+        return  model
+    }
 
     class func loginWith(mobileNumber:String, countryCode:String, returnBlock:@escaping returnBlock) {
         
-        let connectingURL = ":8083/getstarted/sendsms?number=" + mobileNumber + "&code" + countryCode
+        let connectingURL = "getstarted/sendsms?number=" + mobileNumber + "&code" + countryCode
         
         SquabDataCenter.sharedInstance.sendRequest(connectingURL: connectingURL, httpMethod: .GET, parameters: nil) { (response, errorMessage) in
             
@@ -61,9 +70,11 @@ public class SQLoginPhoneModel:Decodable {
             }
             else {
                 if let data = response {
+                    print("in string format = \(String.init(data: data as! Data, encoding: .utf8))")
                     do {
                         let responseModel = try JSONDecoder().decode(SQLoginPhoneModel.self, from: data as! Data)
                         responseModel.selectedMobileNumber = mobileNumber
+                        responseModel.selectedCountryCode = countryCode
                         returnBlock(responseModel, nil)
                     }
                     catch let jsonError {
@@ -71,14 +82,12 @@ public class SQLoginPhoneModel:Decodable {
                     }
                 }
             }
-            
         }
     }
-    
+        
     func verifyMobile(otp:String, returnBlock:@escaping returnBlock) {
-        if let details = details {
-            let connectingURL = "/getstarted/verifyotp?session=" + details + "&otp=" + otp
-            
+        if let details = Details {
+            let connectingURL = "getstarted/verifyotp?session=" + details + "&otp=" + otp
             SquabDataCenter.sharedInstance.sendRequest(connectingURL: connectingURL, httpMethod: .GET, parameters: nil) { (response, errorMessage) in
                 
                 if let errorMessage = errorMessage {
@@ -97,5 +106,43 @@ public class SQLoginPhoneModel:Decodable {
                 }
             }
         }
+    }
+    
+    func registerUser(firstName:String, lastName:String, returnBlock:@escaping returnBlock) {
+        guard let countryCode = selectedCountryCode else {
+            return
+        }
+        
+        guard let mobileNumber = selectedMobileNumber else {
+            return
+        }
+        
+        let deviceToken = "weibiefbiwebf"
+        var code = countryCode
+        if code.contains("+") {
+            let rangeOfPlus = (code as NSString).range(of: "+")
+            code = (code as NSString).replacingCharacters(in: rangeOfPlus, with: "")
+        }
+        
+        let connectingURL = "getstarted/regusers?token=" + deviceToken + "&mobileno=" + mobileNumber + "&code=" + code + "&fname=" + firstName + "&lname=" + lastName
+        
+        SquabDataCenter.sharedInstance.sendRequest(connectingURL: connectingURL, httpMethod: .GET, parameters: nil) { (response, errorMessage) in
+            
+            if let errorMessage = errorMessage {
+                returnBlock(nil, errorMessage)
+            }
+            else {
+                if let data = response {
+                    do {
+                        let responseModel = try JSONDecoder().decode(SQRequestSuccessStatusModel.self, from: data as! Data)
+                        returnBlock(responseModel, nil)
+                    }
+                    catch let jsonError {
+                        returnBlock(nil, jsonError.localizedDescription)
+                    }
+                }
+            }
+        }
+        
     }
 }

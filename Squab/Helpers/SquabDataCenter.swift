@@ -40,13 +40,12 @@ class SquabDataCenter: NSObject {
             return
         }
         
-        guard let connectingURL = URL.init(string: url) else {
+        guard let URL = URL.init(string: url) else {
             return
         }
         
-        var request = getURLRequestWitPrefilledHeaders(connectingURL: connectingURL)
+        var request = getURLRequestWitPrefilledHeaders(connectingURL: URL)
         
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         SquabProgressIndicator.sharedInstance.show(with: "")
         
         if let parameters = parameters {
@@ -62,12 +61,16 @@ class SquabDataCenter: NSObject {
         
         let session = URLSession(configuration: configuration)
         
+        print("Connecting URL = \(url)")
+        
         session.dataTask(with: request) { (data, response, error) in
+            
             
             DispatchQueue.main.async {
                 SquabProgressIndicator.sharedInstance.hide()
                 
                 if let data = data {
+                    print("response data = \(String.init(data: data, encoding: .utf8))")
                     if let response = response as? HTTPURLResponse, 200...299 ~= response.statusCode {//SUCCESS SCENARIO
                         returnBlock(data, nil)
                     } else {//FAILURE SCENARIO
@@ -79,7 +82,8 @@ class SquabDataCenter: NSObject {
                     }
                 }
                 else {//FAILURE SCENARIO
-                    returnBlock(nil, "Something went wrong. Unable to parse the response.")
+                    print("error = \(error?.localizedDescription)")
+                    returnBlock(nil, error?.localizedDescription)
                 }
             }
         }.resume()

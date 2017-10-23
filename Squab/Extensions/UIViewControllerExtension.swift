@@ -52,6 +52,13 @@ func showErrorHud(position: HudPosition, message:String, bgColor: HudBgColor, is
             messageView?.bodyLabel?.isHidden = true
             messageView?.titleLabel?.textAlignment = .center
             messageView?.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+            if SCREEN_HEIGHT < 600 {
+                messageView?.titleLabel?.font = UIFont.systemFont(ofSize: 10)
+            }
+            else if SCREEN_HEIGHT < 670 {
+                messageView?.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+            }
+            messageView?.titleLabel?.numberOfLines = 0
             messageView?.button?.isHidden = true
             messageView?.iconImageView?.isHidden = true
             messageView?.iconLabel?.isHidden = true

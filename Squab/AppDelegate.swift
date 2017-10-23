@@ -18,15 +18,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         UIApplication.shared.statusBarStyle = .lightContent
-        SquabDataCenter.sharedInstance.domain = "http:/squab.avartaka.com"
+        SquabDataCenter.sharedInstance.domain = "http://squab.avartaka.com:8083/"
+        
+        setUpRootViewController()
         
         
-        let navigationController = UINavigationController.init(rootViewController: SQLandingPageController())
+        return true
+    }
+    
+    func setUpRootViewController() {
+        var rootController:UIViewController = SQLandingPageController()
+        
+        switch SquabUserManager.sharedInstance.getCurrentUserLoggedInState() {
+        case .loggedInButNoUserDetails:
+            let nextController = SQUserDetailsEntryController()
+            nextController.loginResponseModel = SquabUserManager.sharedInstance.getLoginResponseModel()
+            rootController = nextController
+            break
+        case .loggedIn:
+            rootController = SQBoardsPageController()
+            break
+        default:
+            break
+        }
+        
+        let navigationController = UINavigationController.init(rootViewController: rootController)
         navigationController.isNavigationBarHidden = true
         window?.backgroundColor = .black
         window?.makeKeyAndVisible()
         window?.rootViewController = navigationController
-        return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

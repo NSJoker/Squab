@@ -34,8 +34,14 @@ class SQLandingPageController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        txtMobileNumber.becomeFirstResponder()
+    }
+    
     //MARK:Target Methods
     @IBAction func didTapCountryCodeButton(_ sender: Any) {
+        view.endEditing(true)
         countryPickerController.frame = (UIApplication.shared.keyWindow?.bounds)!
         UIApplication.shared.keyWindow?.addSubview(countryPickerController)
         countryPickerController.animateAndShow()
@@ -56,8 +62,8 @@ class SQLandingPageController: UIViewController {
             else {
                 
                 let responseObj = (response as! SQLoginPhoneModel)
-                if responseObj.status?.uppercased() == "ERROR" {
-                    self.showErrorHud(position: .top, message: responseObj.details ?? "Something went wrong", bgColor: .red, isPermanent: false)
+                if responseObj.Status?.uppercased() == "ERROR" {
+                    self.showErrorHud(position: .top, message: responseObj.Details ?? "Something went wrong", bgColor: .red, isPermanent: false)
                 }
                 else {
                     DispatchQueue.main.async {
@@ -87,6 +93,12 @@ extension SQLandingPageController:UITextFieldDelegate {
         let compSepByCharInSet = string.components(separatedBy: aSet)
         let numberFiltered = compSepByCharInSet.joined(separator: "")
         return string == numberFiltered
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
+        didTapNextButton(btnNext)
+        return true
     }
 }
 

@@ -15,6 +15,7 @@ class SQOTPEntryController: UIViewController {
     @IBOutlet weak var txtOtp: UITextField!
     @IBOutlet weak var lblTermsAndCOnditions: UILabel!
     @IBOutlet weak var btnNext: UIButton!
+    @IBOutlet weak var lcImageviewTopSpace: NSLayoutConstraint!
     
     
     override func viewDidLoad() {
@@ -35,10 +36,39 @@ class SQOTPEntryController: UIViewController {
         lblTermsAndCOnditions.attributedText = termsAttrStr
         
         btnNext.addShadowWith(shadowPath: UIBezierPath.init(rect: btnNext.bounds).cgPath, shadowColor: UIColor.black.cgColor, shadowOpacity: 0.5, shadowRadius: 2.0, shadowOffset: CGSize.zero)
+        
+        txtOtp.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func keyboardWillChangeFrame(_ notification: Notification) {
+        
+        if SCREEN_HEIGHT < 600 {
+            let endFrame = ((notification as NSNotification).userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+            
+            if endFrame.origin.y == SCREEN_HEIGHT {//Keyboard dissed
+                lcImageviewTopSpace.constant = 30.0
+            }
+            else {
+                lcImageviewTopSpace.constant = -70.0
+            }
+            
+            view.layoutIfNeeded()
+        }
     }
     
     //MARK:Target Methods
@@ -67,16 +97,34 @@ class SQOTPEntryController: UIViewController {
             else {
                 
                 let responseObj = (response as! SQLoginPhoneModel)
-                if responseObj.status?.uppercased() == "ERROR" {
-                    self.showErrorHud(position: .top, message: responseObj.details ?? "Something went wrong", bgColor: .red, isPermanent: false)
+                if responseObj.Status?.uppercased() == "ERROR" {
+                    self.showErrorHud(position: .top, message: responseObj.Details ?? "Something went wrong", bgColor: .red, isPermanent: false)
                 }
                 else {
                     DispatchQueue.main.async {
-                        SquabUserManager.sharedInstance.saveNewRegisteredPhone(phone: (self.loginResponseModel?.selectedMobileNumber)!)
-                        self.navigationController?.pushViewController(SQUserDetailsEntryController(), animated: true)
+                        SquabUserManager.sharedInstance.saveLoginModel(loginModel: self.loginResponseModel!)
+                        let userDetailsEntryPage = SQUserDetailsEntryController()
+                        userDetailsEntryPage.loginResponseModel = self.loginResponseModel
+                        self.navigationController?.pushViewController(userDetailsEntryPage, animated: true)
                     }
                 }
             }
         })
+    }
+}
+
+extension SQOTPEntryController:UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        let aSet = NSCharacterSet(charactersIn:"0123456789").inverted
+        let compSepByCharInSet = string.components(separatedBy: aSet)
+        let numberFiltered = compSepByCharInSet.joined(separator: "")
+        return string == numberFiltered
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
+        didTapNextbutton(btnNext)
+        return true
     }
 }

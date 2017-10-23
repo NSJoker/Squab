@@ -14,6 +14,7 @@
                 <outlet property="btnNext" destination="Nyg-uE-hJT" id="IzA-Bd-GyG"/>
                 <outlet property="lblDescription" destination="jNF-Cd-8B7" id="ov5-By-zKv"/>
                 <outlet property="lblTermsAndCOnditions" destination="MFx-Mc-iKl" id="RCV-Gm-fjK"/>
+                <outlet property="lcImageviewTopSpace" destination="pag-jB-eqJ" id="KIx-8c-4t3"/>
                 <outlet property="txtOtp" destination="0og-5o-ct3" id="ypo-mB-ZiS"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
