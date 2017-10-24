@@ -34,6 +34,19 @@ extension UIViewController {
         }
     }
     
+    func showAlertAndLogout(buttonTitle:String, message:String) {
+        if message.characters.count == 0 {
+            return
+        }
+        
+        let alertController = UIAlertController.init(title: APP_NAME, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction.init(title: buttonTitle, style: .destructive) { (action) in
+            self.navigationController?.viewControllers = [SQLandingPageController()]
+        }
+        alertController.addAction(alertAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
 func showErrorHud(position: HudPosition, message:String, bgColor: HudBgColor, isPermanent:Bool) {
         
         DispatchQueue.main.async {

@@ -32,7 +32,7 @@ class SquabDataCenter: NSObject {
         return Static.instance
     }
     
-    func sendRequest(connectingURL:String, httpMethod:HttpMethod, parameters:[String:Any]?, returnBlock: @escaping returnBlock) {
+    func sendRequest(connectingURL:String, httpMethod:HttpMethod, parameters:[String:Any]?, shoulShowLoadingIndicator:Bool, returnBlock: @escaping returnBlock) {
         let url = domain + connectingURL
         
         if url.isEmpty {
@@ -46,7 +46,10 @@ class SquabDataCenter: NSObject {
         
         var request = getURLRequestWitPrefilledHeaders(connectingURL: URL)
         
-        SquabProgressIndicator.sharedInstance.show(with: "")
+        if shoulShowLoadingIndicator {
+            SquabProgressIndicator.sharedInstance.show(with: "")
+        }
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
         if let parameters = parameters {
             
@@ -67,10 +70,13 @@ class SquabDataCenter: NSObject {
             
             
             DispatchQueue.main.async {
-                SquabProgressIndicator.sharedInstance.hide()
+                if shoulShowLoadingIndicator {
+                    SquabProgressIndicator.sharedInstance.hide()
+                }
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 
                 if let data = data {
-                    print("response data = \(String.init(data: data, encoding: .utf8))")
+                    //print("response data = \(String.init(data: data, encoding: .utf8) ?? "WHAT HAPPEND HERE?")")
                     if let response = response as? HTTPURLResponse, 200...299 ~= response.statusCode {//SUCCESS SCENARIO
                         returnBlock(data, nil)
                     } else {//FAILURE SCENARIO
@@ -82,7 +88,7 @@ class SquabDataCenter: NSObject {
                     }
                 }
                 else {//FAILURE SCENARIO
-                    print("error = \(error?.localizedDescription)")
+                    print("error = \(error?.localizedDescription ?? "Something went wrong")")
                     returnBlock(nil, error?.localizedDescription)
                 }
             }
@@ -96,25 +102,3 @@ class SquabDataCenter: NSObject {
         return request
     }
 }
-
-/*
- 
- //Make the DummyJSONClass confirm to Decodable protocol
- 
- SquabDataCenter.sharedInstance.sendRequest(connectingURL: "jsondecodable/course", httpMethod: .GET, parameters: nil) { (data, errorMessage) in
- 
- if let data = data {
- do {
- let course = try JSONDecoder().decode(DummyJSONClass.self, from: data)
- print("course = \(course.name ?? "XOXO")")
- }
- catch let jsonError {
- print("Some jsonError happened! \(jsonError.localizedDescription)")
- self.showErrorHud(position: .top, message: jsonError.localizedDescription, bgColor: .red, isPermanent: false)
- }
- }
- else {
- self.showErrorHud(position: .top, message: errorMessage ?? "", bgColor: .red, isPermanent: false)
- }
- }
- */

@@ -65,7 +65,7 @@ class SQBoardsPageController: UIViewController {
         let recentItemsNib = UINib.init(nibName: SQRecentItemsCell.reuseIdentifier(), bundle: nil)
         myCollectionView.register(recentItemsNib, forCellWithReuseIdentifier: SQRecentItemsCell.reuseIdentifier())
         
-        myCollectionView.reloadData()
+        myCollectionView.animateAndReload()
     }
     
     //MARK: Target Methods

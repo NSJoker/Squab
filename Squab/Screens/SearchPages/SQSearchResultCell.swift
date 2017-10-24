@@ -15,6 +15,8 @@ class SQSearchResultCell: UICollectionViewCell {
     @IBOutlet weak var lblPublishedBy: UILabel!
     @IBOutlet weak var baseView: UIView!
     
+    var myDataSourceObject:SQSearchResults?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,13 +26,20 @@ class SQSearchResultCell: UICollectionViewCell {
         return "SQSearchResultCell"
     }
     
-    func populateViewWith() {
-        
-        imgThumbnail.addShadowWith(shadowPath: UIBezierPath.init(rect: CGRect(x: 0, y: 0, width: 80, height: 80)).cgPath, shadowColor: UIColor.black.cgColor, shadowOpacity: 0.5, shadowRadius: 1.0, shadowOffset: CGSize.zero)
-        
+    func populateViewWith(searchResult:SQSearchResults) {
+        myDataSourceObject = searchResult
         baseView.layer.cornerRadius = 4.0
+        baseView.addShadowWith(shadowPath: UIBezierPath.init(roundedRect: CGRect(x: 0, y: 0, width: SCREEN_WIDTH-30, height: 78), cornerRadius: 4.0).cgPath, shadowColor: UIColor.black.cgColor, shadowOpacity: 0.5, shadowRadius: 3.0, shadowOffset: CGSize(width: 2, height: 2))
         
-        baseView.addShadowWith(shadowPath: UIBezierPath.init(roundedRect: CGRect(x: 0, y: 0, width: SCREEN_WIDTH-30, height: 78), cornerRadius: 4.0).cgPath, shadowColor: UIColor.black.cgColor, shadowOpacity: 0.5, shadowRadius: 1.0, shadowOffset: CGSize.zero)
+        let itemSize:CGFloat = 80
+        imgThumbnail.addShadowWith(shadowPath: UIBezierPath.init(rect: CGRect(x: 0, y: 0, width: itemSize, height: itemSize)).cgPath, shadowColor: UIColor.black.cgColor, shadowOpacity: 0.2, shadowRadius: 5.0, shadowOffset: CGSize(width: 2, height: 0))
+        
+        //SquabBase64ConvertionHelper
+        imgThumbnail.image = SquabBase64ConvertionHelper.sharedInstance.getImageFromBase64EncodedString(base64String: (myDataSourceObject?.icon)!)
+        
+        lblTitle.text = myDataSourceObject?.title ?? ""
+        lblPublishedBy.text = myDataSourceObject?.username ?? "-"
+        
     }
 
 }

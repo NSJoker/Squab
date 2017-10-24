@@ -16,7 +16,7 @@ class SQSearchPageController: UIViewController {
     
     
     
-    
+    var searchResults = [SQSearchResults]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +28,20 @@ class SQSearchPageController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        if IS_DEVELOPMENT_MODE {//Connect to production server
+            SquabDataCenter.sharedInstance.domain = "http://squab.avartaka.com:9083/"
+        }
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        if IS_DEVELOPMENT_MODE {//Reconnect to development server
+            SquabDataCenter.sharedInstance.domain = "http://squab.avartaka.com:8083/"
+        }
+        
         NotificationCenter.default.removeObserver(self)
     }
 
@@ -58,7 +67,7 @@ class SQSearchPageController: UIViewController {
         let recentItemsNib = UINib.init(nibName: SQSearchResultCell.reuseIdentifier(), bundle: nil)
         myCollectionView.register(recentItemsNib, forCellWithReuseIdentifier: SQSearchResultCell.reuseIdentifier())
         
-        myCollectionView.reloadData()
+        myCollectionView.animateAndReload()
     }
     
     func keyboardWillChangeFrame(_ notification: Notification) {
@@ -79,10 +88,26 @@ class SQSearchPageController: UIViewController {
     func searchWith(searchText:String) {
         if searchText.characters.count == 0 {
             //remove all items in collectionview's datasource and reload collectionview
-            myCollectionView.reloadData()
+            searchResults.removeAll()
+            myCollectionView.animateAndReload()
         }
         else {
             //hit the api with search request
+            if SquabUserManager.sharedInstance.getSavedMobileNumber().characters.count == 0 {
+                showAlertAndLogout(buttonTitle: "OK", message: "Unable find the logged in user details. Please login again")
+            }
+            else {
+                SQSearchResults.searchFor(searchText: searchText, returnBlock: { (response, errorMessage) in
+                    
+                    if let errorMessage = errorMessage {
+                        self.showErrorHud(position: .top, message: errorMessage, bgColor: .red, isPermanent: false)
+                    }
+                    else {
+                        self.searchResults = response as! [SQSearchResults]
+                        self.myCollectionView.animateAndReload()
+                    }
+                })
+            }
         }
     }
 }
@@ -106,13 +131,13 @@ extension SQSearchPageController:UITextFieldDelegate {
 
 extension SQSearchPageController:UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return searchResults.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SQSearchResultCell.reuseIdentifier(), for: indexPath) as! SQSearchResultCell
-        cell.populateViewWith()
+        cell.populateViewWith(searchResult: searchResults[indexPath.row])
         return cell
     }
 }

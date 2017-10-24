@@ -34,7 +34,6 @@ class SquabProgressIndicator: UIView {
             return
         }
         
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         progressBGView.frame = (UIApplication.shared.keyWindow?.bounds)!
         progressBGView.backgroundColor = UIColor.rgba(fromHex: 0x000000, alpha: 0.3)
         UIApplication.shared.keyWindow?.addSubview(progressBGView)
@@ -81,7 +80,6 @@ class SquabProgressIndicator: UIView {
             loadingIndicator.stopAnimating()
             progressBGView.removeFromSuperview()
             progressBGView.alpha = 1.0
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
     }
 

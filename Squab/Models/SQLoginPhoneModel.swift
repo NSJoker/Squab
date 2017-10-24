@@ -63,7 +63,7 @@ public class SQLoginPhoneModel:Decodable {
         
         let connectingURL = "getstarted/sendsms?number=" + mobileNumber + "&code" + countryCode
         
-        SquabDataCenter.sharedInstance.sendRequest(connectingURL: connectingURL, httpMethod: .GET, parameters: nil) { (response, errorMessage) in
+        SquabDataCenter.sharedInstance.sendRequest(connectingURL: connectingURL, httpMethod: .GET, parameters: nil, shoulShowLoadingIndicator: true) { (response, errorMessage) in
             
             if let errorMessage = errorMessage {
                 returnBlock(nil, errorMessage)
@@ -88,7 +88,7 @@ public class SQLoginPhoneModel:Decodable {
     func verifyMobile(otp:String, returnBlock:@escaping returnBlock) {
         if let details = Details {
             let connectingURL = "getstarted/verifyotp?session=" + details + "&otp=" + otp
-            SquabDataCenter.sharedInstance.sendRequest(connectingURL: connectingURL, httpMethod: .GET, parameters: nil) { (response, errorMessage) in
+            SquabDataCenter.sharedInstance.sendRequest(connectingURL: connectingURL, httpMethod: .GET, parameters: nil, shoulShowLoadingIndicator: true) { (response, errorMessage) in
                 
                 if let errorMessage = errorMessage {
                     returnBlock(nil, errorMessage)
@@ -126,7 +126,7 @@ public class SQLoginPhoneModel:Decodable {
         
         let connectingURL = "getstarted/regusers?token=" + deviceToken + "&mobileno=" + mobileNumber + "&code=" + code + "&fname=" + firstName + "&lname=" + lastName
         
-        SquabDataCenter.sharedInstance.sendRequest(connectingURL: connectingURL, httpMethod: .GET, parameters: nil) { (response, errorMessage) in
+        SquabDataCenter.sharedInstance.sendRequest(connectingURL: connectingURL, httpMethod: .GET, parameters: nil, shoulShowLoadingIndicator: true) { (response, errorMessage) in
             
             if let errorMessage = errorMessage {
                 returnBlock(nil, errorMessage)

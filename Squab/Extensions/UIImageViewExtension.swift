@@ -76,4 +76,9 @@ extension UIImageView {
         })
     }
     
+    func animateAndAddImage(img:UIImage) {
+        image = img
+        animateImageView()
+    }
+    
 }

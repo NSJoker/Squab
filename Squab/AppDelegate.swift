@@ -8,6 +8,8 @@
 
 import UIKit
 
+let IS_DEVELOPMENT_MODE = true
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

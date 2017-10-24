@@ -78,4 +78,8 @@ class SquabUserManager: NSObject {
         
         return loginModel
     }
+    
+    func getSavedMobileNumber()->String {
+        return getLoginResponseModel().selectedMobileNumber ?? ""
+    }
 }
