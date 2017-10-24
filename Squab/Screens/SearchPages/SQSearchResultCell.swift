@@ -34,12 +34,11 @@ class SQSearchResultCell: UICollectionViewCell {
         let itemSize:CGFloat = 80
         imgThumbnail.addShadowWith(shadowPath: UIBezierPath.init(rect: CGRect(x: 0, y: 0, width: itemSize, height: itemSize)).cgPath, shadowColor: UIColor.black.cgColor, shadowOpacity: 0.2, shadowRadius: 5.0, shadowOffset: CGSize(width: 2, height: 0))
         
-        //SquabBase64ConvertionHelper
-        imgThumbnail.image = SquabBase64ConvertionHelper.sharedInstance.getImageFromBase64EncodedString(base64String: (myDataSourceObject?.icon)!)
-        
+        imgThumbnail.image = nil
+        if let iconString = myDataSourceObject?.icon {
+            imgThumbnail.image = SquabBase64ConvertionHelper.sharedInstance.getImageFromBase64EncodedString(base64String:iconString)
+        }
         lblTitle.text = myDataSourceObject?.title ?? ""
         lblPublishedBy.text = myDataSourceObject?.username ?? "-"
-        
     }
-
 }
