@@ -17,6 +17,8 @@ class SQLandingPageController: UIViewController {
     @IBOutlet weak var txtMobileNumber: UITextField!
     @IBOutlet weak var btnNext: UIButton!
     
+    
+    
     var selectedCountryCode = ""
     
     
@@ -101,35 +103,3 @@ extension SQLandingPageController:UITextFieldDelegate {
         return true
     }
 }
-
-/*
- 
- segmentedPagerView.delegate = self
- segmentedPagerView.dataSource = self
- segmentedPagerView.bounces = false
- segmentedPagerView.segmentedControlPosition = .top
- segmentedPagerView.pager.bounces = false
- segmentedPagerView.reloadData()
- segmentedPagerView.segmentedControl.selectionIndicatorColor = .red
- segmentedPagerView.segmentedControl.selectionIndicatorLocation = .down
- segmentedPagerView.segmentedControl.selectionStyle = .fullWidthStripe
- 
- //, MXSegmentedPagerDelegate, MXSegmentedPagerDataSource
- func numberOfPages(in segmentedPager: MXSegmentedPager) -> Int {
- return colors.count
- }
- 
- func segmentedPager(_ segmentedPager: MXSegmentedPager, viewForPageAt index: Int) -> UIView {
- let vw = UIView.init(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
- vw.backgroundColor = colors[index]
- return vw
- }
- 
- func segmentedPager(_ segmentedPager: MXSegmentedPager, titleForSectionAt index: Int) -> String {
- return titles[index]
- }
- 
- func heightForSegmentedControl(in segmentedPager: MXSegmentedPager) -> CGFloat {
- return 50
- }
- */

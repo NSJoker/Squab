@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C059C801FA73D1D00950F38 /* SQFileMainPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C059C7E1FA73D1D00950F38 /* SQFileMainPageController.swift */; };
+		6C059C811FA73D1D00950F38 /* SQFileMainPageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C059C7F1FA73D1D00950F38 /* SQFileMainPageController.xib */; };
+		6C059C831FA745F600950F38 /* SQFileIndexMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C059C821FA745F600950F38 /* SQFileIndexMenu.swift */; };
+		6C059C851FA7460200950F38 /* SQFileIndexMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C059C841FA7460200950F38 /* SQFileIndexMenu.xib */; };
+		6C059C881FA74AD500950F38 /* SQFileIndexMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C059C861FA74AD500950F38 /* SQFileIndexMenuCell.swift */; };
+		6C059C891FA74AD500950F38 /* SQFileIndexMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C059C871FA74AD500950F38 /* SQFileIndexMenuCell.xib */; };
+		6C059C8B1FA7571B00950F38 /* SQFileMainPageDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C059C8A1FA7571B00950F38 /* SQFileMainPageDetailsView.swift */; };
+		6C059C8D1FA7572700950F38 /* SQFileMainPageDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C059C8C1FA7572700950F38 /* SQFileMainPageDetailsView.xib */; };
 		6C0B86FA1F9A3D460039CAB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0B86F91F9A3D460039CAB1 /* AppDelegate.swift */; };
 		6C0B86FC1F9A3D460039CAB1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0B86FB1F9A3D460039CAB1 /* ViewController.swift */; };
 		6C0B86FF1F9A3D460039CAB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C0B86FD1F9A3D460039CAB1 /* Main.storyboard */; };
@@ -14,6 +22,17 @@
 		6C0B87041F9A3D460039CAB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C0B87021F9A3D460039CAB1 /* LaunchScreen.storyboard */; };
 		6C0B870E1F9A3DB30039CAB1 /* SQLandingPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0B870C1F9A3DB20039CAB1 /* SQLandingPageController.swift */; };
 		6C0B870F1F9A3DB30039CAB1 /* SQLandingPageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C0B870D1F9A3DB30039CAB1 /* SQLandingPageController.xib */; };
+		6C0D52B71FA02BDD00D95D11 /* SQLanguagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0D52B61FA02BDD00D95D11 /* SQLanguagePicker.swift */; };
+		6C0D52B91FA02BEB00D95D11 /* SQLanguagePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C0D52B81FA02BEB00D95D11 /* SQLanguagePicker.xib */; };
+		6C1858811FA6FA3D00C1F605 /* SQLangListMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C18587F1FA6FA3D00C1F605 /* SQLangListMap.swift */; };
+		6C1858821FA6FA3D00C1F605 /* SQLanguages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1858801FA6FA3D00C1F605 /* SQLanguages.swift */; };
+		6C1858921FA7058C00C1F605 /* SQFileIndexController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1858901FA7058C00C1F605 /* SQFileIndexController.swift */; };
+		6C1858931FA7058C00C1F605 /* SQFileIndexController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C1858911FA7058C00C1F605 /* SQFileIndexController.xib */; };
+		6C1858961FA725BE00C1F605 /* SQFileIndexCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1858941FA725BE00C1F605 /* SQFileIndexCell.swift */; };
+		6C1858971FA725BE00C1F605 /* SQFileIndexCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C1858951FA725BE00C1F605 /* SQFileIndexCell.xib */; };
+		6C1858A11FA7335D00C1F605 /* SQFileIndexValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C18589E1FA7335D00C1F605 /* SQFileIndexValue.swift */; };
+		6C1858A21FA7335D00C1F605 /* SQFileIndexIndexMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C18589F1FA7335D00C1F605 /* SQFileIndexIndexMap.swift */; };
+		6C1858A31FA7335D00C1F605 /* SQFileIndexModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1858A01FA7335D00C1F605 /* SQFileIndexModel.swift */; };
 		6C2975251F9B3BC300917AF6 /* SQCountryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2975241F9B3BC300917AF6 /* SQCountryPicker.swift */; };
 		6C2975271F9B3BCE00917AF6 /* SQCountryPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C2975261F9B3BCE00917AF6 /* SQCountryPicker.xib */; };
 		6C3DCE311F9A469F00191F98 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3DCE301F9A469F00191F98 /* AppConstants.swift */; };
@@ -27,6 +46,8 @@
 		6C5107C21F9D82DA001A5FCD /* SQSearchPageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C5107C01F9D82DA001A5FCD /* SQSearchPageController.xib */; };
 		6C5107C91F9D87F4001A5FCD /* SQSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5107C71F9D87F4001A5FCD /* SQSearchResultCell.swift */; };
 		6C5107CA1F9D87F4001A5FCD /* SQSearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C5107C81F9D87F4001A5FCD /* SQSearchResultCell.xib */; };
+		6C9095481FA17E2F00B311E9 /* SQLanguagePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9095461FA17E2F00B311E9 /* SQLanguagePickerCell.swift */; };
+		6C9095491FA17E2F00B311E9 /* SQLanguagePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C9095471FA17E2F00B311E9 /* SQLanguagePickerCell.xib */; };
 		6CA348041F9CE0BE00066D92 /* SQBoardsPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA348021F9CE0BE00066D92 /* SQBoardsPageController.swift */; };
 		6CA348051F9CE0BE00066D92 /* SQBoardsPageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CA348031F9CE0BE00066D92 /* SQBoardsPageController.xib */; };
 		6CA84F8E1F9CEED70052CF71 /* SQRequestSuccessStatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA84F8D1F9CEED70052CF71 /* SQRequestSuccessStatusModel.swift */; };
@@ -48,6 +69,14 @@
 /* Begin PBXFileReference section */
 		12E611688385313CEE3FB0EB /* Pods-Squab.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Squab.release.xcconfig"; path = "Pods/Target Support Files/Pods-Squab/Pods-Squab.release.xcconfig"; sourceTree = "<group>"; };
 		633F475763384A8D0240D86D /* Pods-Squab.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Squab.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Squab/Pods-Squab.debug.xcconfig"; sourceTree = "<group>"; };
+		6C059C7E1FA73D1D00950F38 /* SQFileMainPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SQFileMainPageController.swift; path = Screens/FileMainPage/SQFileMainPageController.swift; sourceTree = "<group>"; };
+		6C059C7F1FA73D1D00950F38 /* SQFileMainPageController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SQFileMainPageController.xib; path = Screens/FileMainPage/SQFileMainPageController.xib; sourceTree = "<group>"; };
+		6C059C821FA745F600950F38 /* SQFileIndexMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SQFileIndexMenu.swift; path = Screens/FileMainPage/SQFileIndexMenu.swift; sourceTree = "<group>"; };
+		6C059C841FA7460200950F38 /* SQFileIndexMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SQFileIndexMenu.xib; path = Screens/FileMainPage/SQFileIndexMenu.xib; sourceTree = "<group>"; };
+		6C059C861FA74AD500950F38 /* SQFileIndexMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SQFileIndexMenuCell.swift; path = Screens/FileMainPage/SQFileIndexMenuCell.swift; sourceTree = "<group>"; };
+		6C059C871FA74AD500950F38 /* SQFileIndexMenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SQFileIndexMenuCell.xib; path = Screens/FileMainPage/SQFileIndexMenuCell.xib; sourceTree = "<group>"; };
+		6C059C8A1FA7571B00950F38 /* SQFileMainPageDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SQFileMainPageDetailsView.swift; path = Screens/FileMainPage/SQFileMainPageDetailsView.swift; sourceTree = "<group>"; };
+		6C059C8C1FA7572700950F38 /* SQFileMainPageDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SQFileMainPageDetailsView.xib; path = Screens/FileMainPage/SQFileMainPageDetailsView.xib; sourceTree = "<group>"; };
 		6C0B86F61F9A3D460039CAB1 /* Squab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Squab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C0B86F91F9A3D460039CAB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C0B86FB1F9A3D460039CAB1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +86,17 @@
 		6C0B87051F9A3D460039CAB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C0B870C1F9A3DB20039CAB1 /* SQLandingPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SQLandingPageController.swift; path = Screens/LandingPage/SQLandingPageController.swift; sourceTree = "<group>"; };
 		6C0B870D1F9A3DB30039CAB1 /* SQLandingPageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SQLandingPageController.xib; path = Screens/LandingPage/SQLandingPageController.xib; sourceTree = "<group>"; };
+		6C0D52B61FA02BDD00D95D11 /* SQLanguagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SQLanguagePicker.swift; path = Screens/SearchPages/SQLanguagePicker.swift; sourceTree = "<group>"; };
+		6C0D52B81FA02BEB00D95D11 /* SQLanguagePicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SQLanguagePicker.xib; path = Screens/SearchPages/SQLanguagePicker.xib; sourceTree = "<group>"; };
+		6C18587F1FA6FA3D00C1F605 /* SQLangListMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SQLangListMap.swift; path = Models/SQLangListMap.swift; sourceTree = "<group>"; };
+		6C1858801FA6FA3D00C1F605 /* SQLanguages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SQLanguages.swift; path = Models/SQLanguages.swift; sourceTree = "<group>"; };
+		6C1858901FA7058C00C1F605 /* SQFileIndexController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SQFileIndexController.swift; path = Screens/FileIndex/SQFileIndexController.swift; sourceTree = "<group>"; };
+		6C1858911FA7058C00C1F605 /* SQFileIndexController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SQFileIndexController.xib; path = Screens/FileIndex/SQFileIndexController.xib; sourceTree = "<group>"; };
+		6C1858941FA725BE00C1F605 /* SQFileIndexCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SQFileIndexCell.swift; path = Screens/FileIndex/SQFileIndexCell.swift; sourceTree = "<group>"; };
+		6C1858951FA725BE00C1F605 /* SQFileIndexCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SQFileIndexCell.xib; path = Screens/FileIndex/SQFileIndexCell.xib; sourceTree = "<group>"; };
+		6C18589E1FA7335D00C1F605 /* SQFileIndexValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SQFileIndexValue.swift; path = Models/SQFileIndexValue.swift; sourceTree = "<group>"; };
+		6C18589F1FA7335D00C1F605 /* SQFileIndexIndexMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SQFileIndexIndexMap.swift; path = Models/SQFileIndexIndexMap.swift; sourceTree = "<group>"; };
+		6C1858A01FA7335D00C1F605 /* SQFileIndexModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SQFileIndexModel.swift; path = Models/SQFileIndexModel.swift; sourceTree = "<group>"; };
 		6C2975241F9B3BC300917AF6 /* SQCountryPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SQCountryPicker.swift; path = Screens/LandingPage/SQCountryPicker.swift; sourceTree = "<group>"; };
 		6C2975261F9B3BCE00917AF6 /* SQCountryPicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SQCountryPicker.xib; path = Screens/LandingPage/SQCountryPicker.xib; sourceTree = "<group>"; };
 		6C3DCE301F9A469F00191F98 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
@@ -70,6 +110,8 @@
 		6C5107C01F9D82DA001A5FCD /* SQSearchPageController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SQSearchPageController.xib; path = Screens/SearchPages/SQSearchPageController.xib; sourceTree = "<group>"; };
 		6C5107C71F9D87F4001A5FCD /* SQSearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SQSearchResultCell.swift; path = Screens/SearchPages/SQSearchResultCell.swift; sourceTree = "<group>"; };
 		6C5107C81F9D87F4001A5FCD /* SQSearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SQSearchResultCell.xib; path = Screens/SearchPages/SQSearchResultCell.xib; sourceTree = "<group>"; };
+		6C9095461FA17E2F00B311E9 /* SQLanguagePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SQLanguagePickerCell.swift; path = Screens/SearchPages/SQLanguagePickerCell.swift; sourceTree = "<group>"; };
+		6C9095471FA17E2F00B311E9 /* SQLanguagePickerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SQLanguagePickerCell.xib; path = Screens/SearchPages/SQLanguagePickerCell.xib; sourceTree = "<group>"; };
 		6CA348021F9CE0BE00066D92 /* SQBoardsPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SQBoardsPageController.swift; path = Screens/Boardspage/SQBoardsPageController.swift; sourceTree = "<group>"; };
 		6CA348031F9CE0BE00066D92 /* SQBoardsPageController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SQBoardsPageController.xib; path = Screens/Boardspage/SQBoardsPageController.xib; sourceTree = "<group>"; };
 		6CA84F8D1F9CEED70052CF71 /* SQRequestSuccessStatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SQRequestSuccessStatusModel.swift; path = Models/SQRequestSuccessStatusModel.swift; sourceTree = "<group>"; };
@@ -100,6 +142,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C059C7D1FA73CFB00950F38 /* FileMainPage */ = {
+			isa = PBXGroup;
+			children = (
+				6C059C7E1FA73D1D00950F38 /* SQFileMainPageController.swift */,
+				6C059C7F1FA73D1D00950F38 /* SQFileMainPageController.xib */,
+				6C059C821FA745F600950F38 /* SQFileIndexMenu.swift */,
+				6C059C841FA7460200950F38 /* SQFileIndexMenu.xib */,
+				6C059C861FA74AD500950F38 /* SQFileIndexMenuCell.swift */,
+				6C059C871FA74AD500950F38 /* SQFileIndexMenuCell.xib */,
+				6C059C8A1FA7571B00950F38 /* SQFileMainPageDetailsView.swift */,
+				6C059C8C1FA7572700950F38 /* SQFileMainPageDetailsView.xib */,
+			);
+			name = FileMainPage;
+			sourceTree = "<group>";
+		};
 		6C0B86ED1F9A3D460039CAB1 = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +196,8 @@
 		6C0B870B1F9A3D750039CAB1 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				6C059C7D1FA73CFB00950F38 /* FileMainPage */,
+				6C18588F1FA7055100C1F605 /* FileIndex */,
 				6C5107BE1F9D82A9001A5FCD /* SearchPages */,
 				6CA348011F9CE08900066D92 /* BoardsPage */,
 				6CB3F6221F9B593B00F39FAF /* EntryPages */,
@@ -155,6 +214,17 @@
 				6C2975261F9B3BCE00917AF6 /* SQCountryPicker.xib */,
 			);
 			name = LandingPage;
+			sourceTree = "<group>";
+		};
+		6C18588F1FA7055100C1F605 /* FileIndex */ = {
+			isa = PBXGroup;
+			children = (
+				6C1858901FA7058C00C1F605 /* SQFileIndexController.swift */,
+				6C1858911FA7058C00C1F605 /* SQFileIndexController.xib */,
+				6C1858941FA725BE00C1F605 /* SQFileIndexCell.swift */,
+				6C1858951FA725BE00C1F605 /* SQFileIndexCell.xib */,
+			);
+			name = FileIndex;
 			sourceTree = "<group>";
 		};
 		6C3DCE321F9A4EBE00191F98 /* Extensions */ = {
@@ -188,6 +258,10 @@
 				6C5107C01F9D82DA001A5FCD /* SQSearchPageController.xib */,
 				6C5107C71F9D87F4001A5FCD /* SQSearchResultCell.swift */,
 				6C5107C81F9D87F4001A5FCD /* SQSearchResultCell.xib */,
+				6C0D52B61FA02BDD00D95D11 /* SQLanguagePicker.swift */,
+				6C0D52B81FA02BEB00D95D11 /* SQLanguagePicker.xib */,
+				6C9095461FA17E2F00B311E9 /* SQLanguagePickerCell.swift */,
+				6C9095471FA17E2F00B311E9 /* SQLanguagePickerCell.xib */,
 			);
 			name = SearchPages;
 			sourceTree = "<group>";
@@ -228,6 +302,11 @@
 				6CDEC45C1F9B95CF00A25353 /* SQLoginPhoneModel.swift */,
 				6CA84F8D1F9CEED70052CF71 /* SQRequestSuccessStatusModel.swift */,
 				6CFC8FD31F9ED1FD00F6192F /* SQSearchResults.swift */,
+				6C18587F1FA6FA3D00C1F605 /* SQLangListMap.swift */,
+				6C1858801FA6FA3D00C1F605 /* SQLanguages.swift */,
+				6C18589F1FA7335D00C1F605 /* SQFileIndexIndexMap.swift */,
+				6C1858A01FA7335D00C1F605 /* SQFileIndexModel.swift */,
+				6C18589E1FA7335D00C1F605 /* SQFileIndexValue.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -321,14 +400,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C059C8D1FA7572700950F38 /* SQFileMainPageDetailsView.xib in Resources */,
 				6C5107CA1F9D87F4001A5FCD /* SQSearchResultCell.xib in Resources */,
 				6CDEC4641F9BBD0C00A25353 /* SQUserDetailsEntryController.xib in Resources */,
+				6C1858931FA7058C00C1F605 /* SQFileIndexController.xib in Resources */,
 				6C0B87041F9A3D460039CAB1 /* LaunchScreen.storyboard in Resources */,
+				6C0D52B91FA02BEB00D95D11 /* SQLanguagePicker.xib in Resources */,
 				6C2975271F9B3BCE00917AF6 /* SQCountryPicker.xib in Resources */,
 				6CA348051F9CE0BE00066D92 /* SQBoardsPageController.xib in Resources */,
+				6C059C811FA73D1D00950F38 /* SQFileMainPageController.xib in Resources */,
 				6CB3F6201F9B592500F39FAF /* SQOTPEntryController.xib in Resources */,
+				6C059C891FA74AD500950F38 /* SQFileIndexMenuCell.xib in Resources */,
+				6C1858971FA725BE00C1F605 /* SQFileIndexCell.xib in Resources */,
 				6C0B87011F9A3D460039CAB1 /* Assets.xcassets in Resources */,
 				6C5107C21F9D82DA001A5FCD /* SQSearchPageController.xib in Resources */,
+				6C059C851FA7460200950F38 /* SQFileIndexMenu.xib in Resources */,
+				6C9095491FA17E2F00B311E9 /* SQLanguagePickerCell.xib in Resources */,
 				6C0B870F1F9A3DB30039CAB1 /* SQLandingPageController.xib in Resources */,
 				6C0B86FF1F9A3D460039CAB1 /* Main.storyboard in Resources */,
 				6CA84F921F9D79830052CF71 /* SQRecentItemsCell.xib in Resources */,
@@ -391,27 +478,40 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C0B86FC1F9A3D460039CAB1 /* ViewController.swift in Sources */,
+				6C059C831FA745F600950F38 /* SQFileIndexMenu.swift in Sources */,
+				6C059C8B1FA7571B00950F38 /* SQFileMainPageDetailsView.swift in Sources */,
 				6C0B86FA1F9A3D460039CAB1 /* AppDelegate.swift in Sources */,
+				6C1858811FA6FA3D00C1F605 /* SQLangListMap.swift in Sources */,
 				6CB3F61F1F9B592500F39FAF /* SQOTPEntryController.swift in Sources */,
 				6CBA07691F9EE4FF001E4F89 /* UITableViewExtension.swift in Sources */,
 				6CA84F911F9D79830052CF71 /* SQRecentItemsCell.swift in Sources */,
+				6C1858A21FA7335D00C1F605 /* SQFileIndexIndexMap.swift in Sources */,
 				6CFC8FD61F9EDC1000F6192F /* SquabBase64ConvertionHelper.swift in Sources */,
 				6C3DCE361F9A4F5E00191F98 /* UIImageViewExtension.swift in Sources */,
 				6C3DCE341F9A4F1700191F98 /* UIColorExtension.swift in Sources */,
 				6CDEC45F1F9BB83900A25353 /* SquabUserManager.swift in Sources */,
 				6CFC8FD41F9ED1FE00F6192F /* SQSearchResults.swift in Sources */,
 				6C0B870E1F9A3DB30039CAB1 /* SQLandingPageController.swift in Sources */,
+				6C9095481FA17E2F00B311E9 /* SQLanguagePickerCell.swift in Sources */,
+				6C0D52B71FA02BDD00D95D11 /* SQLanguagePicker.swift in Sources */,
 				6CA348041F9CE0BE00066D92 /* SQBoardsPageController.swift in Sources */,
+				6C1858821FA6FA3D00C1F605 /* SQLanguages.swift in Sources */,
 				6C5107C11F9D82DA001A5FCD /* SQSearchPageController.swift in Sources */,
 				6CFC8FD81F9EDD6300F6192F /* StringExtensions.swift in Sources */,
+				6C059C801FA73D1D00950F38 /* SQFileMainPageController.swift in Sources */,
 				6CDEC4631F9BBD0C00A25353 /* SQUserDetailsEntryController.swift in Sources */,
+				6C1858A31FA7335D00C1F605 /* SQFileIndexModel.swift in Sources */,
+				6C1858921FA7058C00C1F605 /* SQFileIndexController.swift in Sources */,
 				6C3DCE3F1F9A6CBC00191F98 /* SquabDataCenter.swift in Sources */,
 				6C2975251F9B3BC300917AF6 /* SQCountryPicker.swift in Sources */,
 				6CDEC45D1F9B969900A25353 /* SQLoginPhoneModel.swift in Sources */,
+				6C1858961FA725BE00C1F605 /* SQFileIndexCell.swift in Sources */,
 				6C3DCE3B1F9A628D00191F98 /* SquabProgressIndicator.swift in Sources */,
 				6C3DCE3D1F9A64D000191F98 /* UIViewExtension.swift in Sources */,
+				6C1858A11FA7335D00C1F605 /* SQFileIndexValue.swift in Sources */,
 				6C5107C91F9D87F4001A5FCD /* SQSearchResultCell.swift in Sources */,
 				6C3DCE381F9A529500191F98 /* UIViewControllerExtension.swift in Sources */,
+				6C059C881FA74AD500950F38 /* SQFileIndexMenuCell.swift in Sources */,
 				6CA84F8E1F9CEED70052CF71 /* SQRequestSuccessStatusModel.swift in Sources */,
 				6C3DCE311F9A469F00191F98 /* AppConstants.swift in Sources */,
 			);

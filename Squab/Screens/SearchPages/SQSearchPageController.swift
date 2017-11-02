@@ -14,6 +14,7 @@ class SQSearchPageController: UIViewController {
     @IBOutlet weak var txtSearch: UITextField!
     @IBOutlet weak var myCollectionView: UICollectionView!
     
+    var selectedSearchResult:SQSearchResults?
     
     
     var searchResults = [SQSearchResults]()
@@ -27,21 +28,11 @@ class SQSearchPageController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        if IS_DEVELOPMENT_MODE {//Connect to production server
-            SquabDataCenter.sharedInstance.domain = "http://squab.avartaka.com:9083/"
-        }
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
-        if IS_DEVELOPMENT_MODE {//Reconnect to development server
-            SquabDataCenter.sharedInstance.domain = "http://squab.avartaka.com:8083/"
-        }
-        
         NotificationCenter.default.removeObserver(self)
     }
 
@@ -139,5 +130,62 @@ extension SQSearchPageController:UICollectionViewDelegate, UICollectionViewDataS
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SQSearchResultCell.reuseIdentifier(), for: indexPath) as! SQSearchResultCell
         cell.populateViewWith(searchResult: searchResults[indexPath.row])
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        view.endEditing(true)
+        selectedSearchResult = searchResults[indexPath.row]
+        self.selectedSearchResult?.getDetailsOfFile { (response, errorMessage) in
+            if let errorMessage = errorMessage {
+                self.showErrorHud(position: .top, message: errorMessage, bgColor: .red, isPermanent: false)
+            }
+            else {
+                
+                let languages = response as! SQLanguages
+                
+                if let count = languages.langListMap?.count {
+                    if count > 1 {
+                        let languagePicker:SQLanguagePicker = Bundle.main.loadNibNamed("SQLanguagePicker", owner: self, options: nil)![0] as! SQLanguagePicker
+                        languagePicker.delegate = self
+                        languagePicker.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT)
+                        UIApplication.shared.keyWindow?.addSubview(languagePicker)
+                        languagePicker.prepareView(languages: languages)
+                        languagePicker.animateAndShow()
+                    }
+                    else if count == 1 {
+                        self.openFileWithLanguage(languageMap: languages.langListMap![0])
+                    }
+                    else {
+                        self.showAlertWith(buttonTitle: "OK", message: "Unable to open file, because no language was found!", shouldPopCurrentVC: NO)
+                    }
+                }
+                else {
+                    self.showAlertWith(buttonTitle: "OK", message: "Unable to open file, because no language was found!", shouldPopCurrentVC: NO)
+                }
+            }
+        }
+    }
+}
+
+extension SQSearchPageController:SQLanguagePickerDelegate {
+    func openFileWithLanguage(languageMap: SQLangListMap) {
+        self.selectedSearchResult?.getOriginalFile(language: languageMap.key ?? "En", returnBlock: { (response, errorMessage) in
+            
+            if let errorMessage = errorMessage {
+                print("errorMessage = ",errorMessage)
+            }
+            else {
+                let fileIndexs = response as! SQFileIndexModel
+                
+                let fileIndexController = SQFileIndexController()
+                fileIndexController.selectedLaguageKey = languageMap.key ?? "En"
+                fileIndexController.fileIndexes = fileIndexs
+                fileIndexController.selectedSearchResult =  self.selectedSearchResult
+                let newNavController = UINavigationController.init(rootViewController: fileIndexController)
+                newNavController.isNavigationBarHidden = true
+                self.present(newNavController, animated: true, completion: nil)
+            }
+        })
     }
 }

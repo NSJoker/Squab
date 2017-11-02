@@ -32,8 +32,13 @@ class SquabDataCenter: NSObject {
         return Static.instance
     }
     
-    func sendRequest(connectingURL:String, httpMethod:HttpMethod, parameters:[String:Any]?, shoulShowLoadingIndicator:Bool, returnBlock: @escaping returnBlock) {
-        let url = domain + connectingURL
+    func sendRequest(connectingURL:String, httpMethod:HttpMethod, parameters:[String:Any]?, shouldShowLoadingIndicator:Bool, returnBlock: @escaping returnBlock) {
+        
+        var url = connectingURL
+        
+        if (connectingURL as NSString).contains("http") == false {
+            url = domain + connectingURL
+        }
         
         if url.isEmpty {
             print("Unable to connect to API.\nThe base url and the connecting url are empty. Use setDomain: method to set a base url or provide an endurl in this method call to connect to the API");
@@ -46,7 +51,7 @@ class SquabDataCenter: NSObject {
         
         var request = getURLRequestWitPrefilledHeaders(connectingURL: URL)
         
-        if shoulShowLoadingIndicator {
+        if shouldShowLoadingIndicator {
             SquabProgressIndicator.sharedInstance.show(with: "")
         }
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -70,7 +75,7 @@ class SquabDataCenter: NSObject {
             
             
             DispatchQueue.main.async {
-                if shoulShowLoadingIndicator {
+                if shouldShowLoadingIndicator {
                     SquabProgressIndicator.sharedInstance.hide()
                 }
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false

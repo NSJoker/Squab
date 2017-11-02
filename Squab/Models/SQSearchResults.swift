@@ -75,9 +75,9 @@ public class SQSearchResults:Decodable {
     
     class func searchFor(searchText:String, returnBlock:@escaping returnBlock) {
         let mobileNumber = SquabUserManager.sharedInstance.getSavedMobileNumber()
-        let connectingURL = "getstarted/getdoc?key=" + searchText + "&mobileno=" + mobileNumber
+        let connectingURL = "http://squab.avartaka.com:9083/getstarted/getdoc?key=" + searchText + "&mobileno=" + mobileNumber
         
-        SquabDataCenter.sharedInstance.sendRequest(connectingURL: connectingURL, httpMethod: .GET, parameters: nil, shoulShowLoadingIndicator: false) { (response, errorMessage) in
+        SquabDataCenter.sharedInstance.sendRequest(connectingURL: connectingURL, httpMethod: .GET, parameters: nil, shouldShowLoadingIndicator: false) { (response, errorMessage) in
             
             if let errorMessage = errorMessage {
                 returnBlock(nil, errorMessage)
@@ -94,5 +94,157 @@ public class SQSearchResults:Decodable {
                 }
             }
         }
+    }
+    
+    func getDetailsOfFile(returnBlock:@escaping returnBlock) {
+        
+        guard let filelink = filelink else {
+            returnBlock(nil, "Invalid file link.")
+            return
+        }
+        
+        guard let filePath = filepath?.base64DecodedString() else {
+            returnBlock(nil, "Invalid file path.")
+            return
+        }
+        
+        var connectingURL = filelink
+        
+        if (filelink as NSString).contains("http") == false {
+            connectingURL = "http://" + connectingURL
+        }
+        
+        let parameterPart = ("{\"accountId\":\"\",\"command\":2005,\"id\":\"\",\"fileName\":\"" + filePath + "\",\"metadata\":\"\"}").addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        
+        connectingURL = connectingURL + "?input=" + parameterPart!
+        
+        SquabDataCenter.sharedInstance.sendRequest(connectingURL: connectingURL, httpMethod: .POST, parameters: nil, shouldShowLoadingIndicator: true) { (response, errorMessage) in
+            
+            if let errorMessage = errorMessage {
+                print("error found = ",errorMessage)
+            }
+            else {
+                print("response = ",String.init(data: response as! Data, encoding: .utf8)!)
+                
+                if let data = response {
+                    do {
+                        let responseModel = try JSONDecoder().decode(SQLanguages.self, from: data as! Data)
+                        returnBlock(responseModel, nil)
+                    }
+                    catch let jsonError {
+                        returnBlock(nil, jsonError.localizedDescription)
+                    }
+                }
+            }
+        }
+    }
+    
+    func getOriginalFile(language:String ,returnBlock:@escaping returnBlock) {
+        
+        guard let filelink = filelink else {
+            returnBlock(nil, "Invalid file link.")
+            return
+        }
+        
+        guard let filePath = filepath?.base64DecodedString() else {
+            returnBlock(nil, "Invalid file path.")
+            return
+        }
+        
+        var connectingURL = filelink
+        
+        if (filelink as NSString).contains("http") == false {
+            connectingURL = "http://" + connectingURL
+        }
+        
+        let parameterPart = ("{\"accountId\":\"\",\"command\":1008,\"id\":\"\",\"fileName\":\"" + filePath + "_" + language + "\",\"metadata\":\"\"}").addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        
+        connectingURL = connectingURL + "?input=" + parameterPart!
+        
+        SquabDataCenter.sharedInstance.sendRequest(connectingURL: connectingURL, httpMethod: .POST, parameters: nil, shouldShowLoadingIndicator: true) { (response, errorMessage) in
+            
+            if let errorMessage = errorMessage {
+                print("error found = ",errorMessage)
+            }
+            else {
+                
+                guard let data = response else {
+                    return
+                }
+                
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data as! Data, options: []) as? [String:Any]
+                    let responseObject = SQFileIndexModel.init(json: JSON(json))
+                    returnBlock(responseObject, nil)
+                } catch let jsonError {
+                    returnBlock(nil, jsonError.localizedDescription)
+                }
+                
+            }
+        }
+    }
+    
+    func getDetailsUsingID(idStr:String, language:String ,returnBlock:@escaping returnBlock) {
+        guard let filelink = filelink else {
+            returnBlock(nil, "Invalid file link.")
+            return
+        }
+        
+        guard let filePath = filepath?.base64DecodedString() else {
+            returnBlock(nil, "Invalid file path.")
+            return
+        }
+        
+        var connectingURL = filelink
+        
+        if (filelink as NSString).contains("http") == false {
+            connectingURL = "http://" + connectingURL
+        }
+        
+        let parameterPart = ("{\"accountId\":\"\",\"command\":1002,\"id\":\"" + idStr + "\",\"fileName\":\"" + filePath + "_" + language + "\",\"metadata\":\"\"}").addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        
+        connectingURL = connectingURL + "?input=" + parameterPart!
+        
+        SquabDataCenter.sharedInstance.sendRequest(connectingURL: connectingURL, httpMethod: .POST, parameters: nil, shouldShowLoadingIndicator: true) { (response, errorMessage) in
+            
+            if let errorMessage = errorMessage {
+                print("error found = ",errorMessage)
+            }
+            else {
+                
+                guard let data = response else {
+                    return
+                }
+                
+                //print("response as string = ", String.init(data: data as! Data, encoding: .utf8))
+                
+                guard let encodedResponseString = String.init(data: data as! Data, encoding: .utf8) else {
+                    return
+                }
+                
+                let responseJSONAsString = encodedResponseString.base64DecodedString()
+                
+                print("responseJSONAsString = ",responseJSONAsString)
+                print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+                
+                /*
+                 if let encodedResponseString = String.init(data: data as! Data, encoding: .utf8) {
+                 let responseJSONAsString = encodedResponseString.base64DecodedString()
+                 
+                 let detailsData = responseJSONAsString?.data(using: .utf8)
+                 
+                 do {
+                 let json = try JSONSerialization.jsonObject(with: detailsData as! Data, options: []) as? [String:Any]
+                 
+                 print("json = ",JSON(json))
+                 
+                 } catch let error{
+                 print(error.localizedDescription)
+                 }
+                 }
+                 */
+            }
+        }
+        
     }
 }

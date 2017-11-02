@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="SQFileMainPageDetailsView" customModule="Squab" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RW4-mg-asj">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="597"/>
+                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </webView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Mym-1u-8FF">
+                    <rect key="frame" x="0.0" y="597" width="375" height="70"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="gJF-oD-Hoa"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MRB-7K-Iw0">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="RW4-mg-asj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="5D1-s3-omu"/>
+                <constraint firstItem="Mym-1u-8FF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7U6-8Q-Szr"/>
+                <constraint firstItem="RW4-mg-asj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Cmf-Sj-Dem"/>
+                <constraint firstAttribute="trailing" secondItem="RW4-mg-asj" secondAttribute="trailing" id="egx-6N-Z4k"/>
+                <constraint firstAttribute="trailing" secondItem="Mym-1u-8FF" secondAttribute="trailing" id="gS7-gr-RPS"/>
+                <constraint firstAttribute="bottom" secondItem="Mym-1u-8FF" secondAttribute="bottom" id="jbH-l1-Y5h"/>
+                <constraint firstItem="Mym-1u-8FF" firstAttribute="top" secondItem="RW4-mg-asj" secondAttribute="bottom" id="k3K-td-0ER"/>
+            </constraints>
+            <connections>
+                <outlet property="myCollectionView" destination="Mym-1u-8FF" id="zjV-Id-6C0"/>
+                <outlet property="webView" destination="RW4-mg-asj" id="zxb-ip-dT4"/>
+            </connections>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
+        </view>
+    </objects>
+</document>
