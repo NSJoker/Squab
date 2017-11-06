@@ -72,10 +72,11 @@ extension SQFileMainPageController: MXSegmentedPagerDelegate, MXSegmentedPagerDa
     }
     
     func segmentedPager(_ segmentedPager: MXSegmentedPager, viewForPageAt index: Int) -> UIView {
-        let detailsView = SQFileMainPageDetailsView()
+        let detailsView:SQFileMainPageDetailsView = Bundle.main.loadNibNamed("SQFileMainPageDetailsView", owner: self, options: nil)![0] as! SQFileMainPageDetailsView
         detailsView.selectedSearchResult = self.selectedSearchResult
         detailsView.fileIndexMaps = fileIndexMaps[index]
         detailsView.selectedLaguageKey = selectedLaguageKey
+        detailsView.delegate = self
         detailsView.getDataFromServer()
         return detailsView
     }
@@ -105,5 +106,45 @@ extension SQFileMainPageController:SQFileIndexMenuDelegate {
         selectedIndexmap = index
         segmentedPager.pager.showPage(at: index, animated: false)
         segmentedPager.segmentedControl.selectedSegmentIndex = index
+    }
+}
+
+extension SQFileMainPageController:SQFileMainPageDetailsViewDelegate {
+    func showItemWith(referenceItem: SQMainPageReferenceIconsList) {
+        
+        if referenceItem.format == nil || referenceItem.format?.characters.count == 0 {
+            //It is an image
+            
+            let imageViewerController = SQImageViewerController()
+            imageViewerController.referenceItem = referenceItem
+            imageViewerController.selectedSearchResult = selectedSearchResult
+            imageViewerController.selectedLaguageKey = selectedLaguageKey
+            self.navigationController?.pushViewController(imageViewerController, animated: true)
+        }
+        else {
+            guard let format = referenceItem.format else {
+                return
+            }
+            
+            print("format = ",format)
+            
+            switch format {
+            case "mp4" :
+                guard let selectedSearchResult = selectedSearchResult else {
+                    showErrorHud(position: .top, message: "Unable to play the video.", bgColor: .red, isPermanent: false)
+                    return
+                }
+                self.playVideo(referenceItem: referenceItem, selectedSearchResult: selectedSearchResult, selectedLaguageKey: selectedLaguageKey)
+                break
+            case "txt":
+                self.openFileInWebView(referenceItem: referenceItem, selectedSearchResult: selectedSearchResult, selectedLaguageKey: selectedLaguageKey)
+                break
+            case "pdf":
+                self.openFileInWebView(referenceItem: referenceItem, selectedSearchResult: selectedSearchResult, selectedLaguageKey: selectedLaguageKey)
+                break
+            default:
+                break
+            }
+        }
     }
 }

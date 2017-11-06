@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 import SwiftMessages
+import AVFoundation
+import AVKit
 
 enum HudPosition {
     case top,bottom
@@ -94,5 +96,74 @@ func showErrorHud(position: HudPosition, message:String, bgColor: HudBgColor, is
             
             SwiftMessages.show(config: config, view: (messageView)!)
         }
+    }
+    
+    func playVideo(referenceItem:SQMainPageReferenceIconsList, selectedSearchResult:SQSearchResults, selectedLaguageKey:String) {
+        referenceItem.getFile(searchResult: selectedSearchResult, language:selectedLaguageKey, returnBlock: { (responseObj, errorMessage) in
+            if let errorMessage = errorMessage {
+                self.showErrorHud(position: .top, message: errorMessage, bgColor: .red, isPermanent: false)
+            }
+            else {
+                let base64String = responseObj as! String
+                
+                let videoData = Data.init(base64Encoded: base64String, options: .ignoreUnknownCharacters)
+                let videoURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent(referenceItem.fileName ?? "mymoview.mp4")
+                
+                do {
+                    try videoData?.write(to: videoURL, options: .atomic)
+                    
+                    let player = AVPlayer(url: videoURL)
+                    let playerViewController = AVPlayerViewController()
+                    playerViewController.player = player
+                    self.present(playerViewController, animated: true) {
+                        playerViewController.player?.play()
+                    }
+                } catch {
+                    self.showErrorHud(position: .top, message: "Unable to play video: " + error.localizedDescription, bgColor: .red, isPermanent: false)
+                    return
+                }
+            }
+        })
+    }
+    
+    func openFileInWebView(referenceItem:SQMainPageReferenceIconsList, selectedSearchResult:SQSearchResults?, selectedLaguageKey:String) {
+        
+        guard let selectedSearchResult = selectedSearchResult else {
+            showErrorHud(position: .top, message: "Unable to open file.", bgColor: .red, isPermanent: false)
+            return
+        }
+        
+        
+        
+        referenceItem.getFile(searchResult: selectedSearchResult, language:selectedLaguageKey, returnBlock: { (responseObj, errorMessage) in
+            
+            if let errorMessage = errorMessage {
+                self.showErrorHud(position: .top, message: errorMessage, bgColor: .red, isPermanent: false)
+            }
+            else {
+                
+                DispatchQueue.main.async {
+                    let base64String = responseObj as! String
+                    
+                    let fileData = Data.init(base64Encoded: base64String, options: .ignoreUnknownCharacters)
+                    let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent(referenceItem.fileName ?? ("myfile." + referenceItem.format!))
+                    
+                    do {
+                        try fileData?.write(to: fileURL, options: .atomic)
+                        
+                        DispatchQueue.main.async {
+                            let webViewController = SQWebViewController()
+                            webViewController.lblTitle.text = referenceItem.fileName ?? ""
+                            webViewController.loadWebViewWith(url: fileURL)
+                            self.navigationController?.pushViewController(webViewController, animated: true)
+                        }
+                    } catch {
+                        self.showErrorHud(position: .top, message: "Unable to play video: " + error.localizedDescription, bgColor: .red, isPermanent: false)
+                        return
+                    }
+                }
+            }
+        })
+        
     }
 }

@@ -189,45 +189,31 @@ public class SQSearchResults:Decodable {
             returnBlock(nil, "Invalid file link.")
             return
         }
-        
         guard let filePath = filepath?.base64DecodedString() else {
             returnBlock(nil, "Invalid file path.")
             return
         }
-        
         var connectingURL = filelink
-        
         if (filelink as NSString).contains("http") == false {
             connectingURL = "http://" + connectingURL
         }
-        
         let parameterPart = ("{\"accountId\":\"\",\"command\":1002,\"id\":\"" + idStr + "\",\"fileName\":\"" + filePath + "_" + language + "\",\"metadata\":\"\"}").addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-        
         connectingURL = connectingURL + "?input=" + parameterPart!
-        
         SquabDataCenter.sharedInstance.sendRequest(connectingURL: connectingURL, httpMethod: .POST, parameters: nil, shouldShowLoadingIndicator: true) { (response, errorMessage) in
             
             if let errorMessage = errorMessage {
-                print("error found = ",errorMessage)
+                 returnBlock(nil, errorMessage)
             }
             else {
-                
                 guard let data = response else {
+                    returnBlock(nil, "Something went wrong")
                     return
                 }
-                
-                //print("response as string = ", String.init(data: data as! Data, encoding: .utf8))
-                
                 guard let encodedResponseString = String.init(data: data as! Data, encoding: .utf8) else {
+                    returnBlock(nil, "Something went wrong")
                     return
                 }
-                
                 let responseJSONAsString = encodedResponseString.base64DecodedString()
-                
-                print("responseJSONAsString = ",responseJSONAsString)
-                print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
-                
-                /*
                  if let encodedResponseString = String.init(data: data as! Data, encoding: .utf8) {
                  let responseJSONAsString = encodedResponseString.base64DecodedString()
                  
@@ -235,16 +221,13 @@ public class SQSearchResults:Decodable {
                  
                  do {
                  let json = try JSONSerialization.jsonObject(with: detailsData as! Data, options: []) as? [String:Any]
-                 
-                 print("json = ",JSON(json))
-                 
+                    let responseModel = SQMainPageModel.init(json: JSON(json!))
+                    returnBlock(responseModel, nil)
                  } catch let error{
-                 print(error.localizedDescription)
+                    returnBlock(nil, error.localizedDescription)
                  }
-                 }
-                 */
+             }
             }
         }
-        
     }
 }

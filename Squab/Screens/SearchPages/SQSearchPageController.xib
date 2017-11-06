@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13168.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13147.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SQSearchPageController" customModule="Squab" customModuleProvider="target">
             <connections>
+                <outlet property="lblNoITems" destination="El2-Tp-QGX" id="PsG-5U-RCg"/>
                 <outlet property="lcCollectionViewBottomSpace" destination="zEQ-jG-GxG" id="TaQ-z5-pzS"/>
                 <outlet property="myCollectionView" destination="X1o-G2-acT" id="gsG-iQ-T3F"/>
                 <outlet property="txtSearch" destination="szP-72-v5t" id="GaN-ei-sS2"/>
@@ -26,16 +27,17 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tiA-QS-E0s">
-                            <rect key="frame" x="10" y="25" width="355" height="40"/>
+                            <rect key="frame" x="60" y="25" width="305" height="40"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="szP-72-v5t">
-                                    <rect key="frame" x="10" y="0.0" width="300" height="40"/>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="szP-72-v5t">
+                                    <rect key="frame" x="10" y="0.0" width="250" height="40"/>
                                     <color key="textColor" red="0.26274509800000001" green="0.26274509800000001" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
                                 </textField>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EGo-BV-akl">
-                                    <rect key="frame" x="315" y="0.0" width="40" height="40"/>
+                                    <rect key="frame" x="265" y="0.0" width="40" height="40"/>
+                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="40" id="pcJ-7G-cjE"/>
                                     </constraints>
@@ -52,14 +54,27 @@
                                 <constraint firstItem="szP-72-v5t" firstAttribute="leading" secondItem="tiA-QS-E0s" secondAttribute="leading" constant="10" id="noK-Zm-x4p"/>
                             </constraints>
                         </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rOz-jy-Wjp">
+                            <rect key="frame" x="0.0" y="20" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="Quy-ZC-lc6"/>
+                                <constraint firstAttribute="width" constant="50" id="jR2-nm-swe"/>
+                            </constraints>
+                            <state key="normal" image="ic_back_arrow"/>
+                            <connections>
+                                <action selector="didTapBackButton:" destination="-1" eventType="touchUpInside" id="MTC-dR-9O6"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.094117647060000004" green="0.40784313729999999" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="tiA-QS-E0s" firstAttribute="leading" secondItem="4Vv-9D-cm0" secondAttribute="leading" constant="10" id="3fr-Lg-hSX"/>
+                        <constraint firstItem="tiA-QS-E0s" firstAttribute="leading" secondItem="4Vv-9D-cm0" secondAttribute="leading" constant="60" id="3fr-Lg-hSX"/>
                         <constraint firstAttribute="trailing" secondItem="tiA-QS-E0s" secondAttribute="trailing" constant="10" id="7cr-6i-azU"/>
                         <constraint firstItem="tiA-QS-E0s" firstAttribute="top" secondItem="4Vv-9D-cm0" secondAttribute="top" constant="25" id="IWQ-Om-FCm"/>
                         <constraint firstAttribute="bottom" secondItem="tiA-QS-E0s" secondAttribute="bottom" constant="10" id="SDn-Zs-oOf"/>
                         <constraint firstAttribute="height" constant="75" id="WpM-5j-Pqb"/>
+                        <constraint firstItem="rOz-jy-Wjp" firstAttribute="top" secondItem="4Vv-9D-cm0" secondAttribute="top" constant="20" id="Yu2-JL-3fW"/>
+                        <constraint firstItem="rOz-jy-Wjp" firstAttribute="leading" secondItem="4Vv-9D-cm0" secondAttribute="leading" id="lTh-fN-TKx"/>
                     </constraints>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="X1o-G2-acT">
@@ -72,13 +87,21 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Items Found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="El2-Tp-QGX">
+                    <rect key="frame" x="126.5" y="175" width="121" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="X1o-G2-acT" firstAttribute="top" secondItem="4Vv-9D-cm0" secondAttribute="bottom" id="Ck4-rW-pfj"/>
                 <constraint firstItem="4Vv-9D-cm0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="DjD-lN-eY5"/>
+                <constraint firstItem="El2-Tp-QGX" firstAttribute="top" secondItem="4Vv-9D-cm0" secondAttribute="bottom" constant="100" id="czU-zF-gJV"/>
                 <constraint firstAttribute="trailing" secondItem="4Vv-9D-cm0" secondAttribute="trailing" id="h55-yW-xhC"/>
                 <constraint firstAttribute="trailing" secondItem="X1o-G2-acT" secondAttribute="trailing" id="ivp-ZN-t9r"/>
+                <constraint firstItem="El2-Tp-QGX" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="mYl-Dw-JjZ"/>
                 <constraint firstItem="4Vv-9D-cm0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="oSO-33-MGu"/>
                 <constraint firstItem="X1o-G2-acT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vdP-W0-GoK"/>
                 <constraint firstAttribute="bottom" secondItem="X1o-G2-acT" secondAttribute="bottom" id="zEQ-jG-GxG"/>
@@ -86,4 +109,7 @@
             <point key="canvasLocation" x="24.5" y="52.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="ic_back_arrow" width="16" height="26"/>
+    </resources>
 </document>

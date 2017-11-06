@@ -13,17 +13,22 @@ class SQSearchPageController: UIViewController {
     @IBOutlet weak var lcCollectionViewBottomSpace: NSLayoutConstraint!
     @IBOutlet weak var txtSearch: UITextField!
     @IBOutlet weak var myCollectionView: UICollectionView!
+    @IBOutlet weak var lblNoITems: UILabel!
+    
     
     var selectedSearchResult:SQSearchResults?
     
     
     var searchResults = [SQSearchResults]()
+    var timer:Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         txtSearch.delegate = self
         
         setupCollectionView()
+        
+        txtSearch.becomeFirstResponder()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,11 +81,15 @@ class SQSearchPageController: UIViewController {
         }
     }
     
-    func searchWith(searchText:String) {
+    func searchWith() {
+        let searchText = txtSearch.text!
+        
         if searchText.characters.count == 0 {
             //remove all items in collectionview's datasource and reload collectionview
             searchResults.removeAll()
             myCollectionView.animateAndReload()
+            lblNoITems.isHidden = true
+            myCollectionView.isHidden = false
         }
         else {
             //hit the api with search request
@@ -92,14 +101,25 @@ class SQSearchPageController: UIViewController {
                     
                     if let errorMessage = errorMessage {
                         self.showErrorHud(position: .top, message: errorMessage, bgColor: .red, isPermanent: false)
+                        self.lblNoITems.isHidden = false
+                        self.myCollectionView.isHidden = true
                     }
                     else {
                         self.searchResults = response as! [SQSearchResults]
                         self.myCollectionView.animateAndReload()
+                        self.lblNoITems.isHidden = true
+                        self.myCollectionView.isHidden = false
                     }
                 })
             }
         }
+    }
+    
+    //MARK:Target Methods
+    @IBAction func didTapBackButton(_ sender: Any) {
+        view.endEditing(true)
+        timer?.invalidate()
+        _ = navigationController?.popViewController(animated: true)
     }
 }
 
@@ -112,10 +132,8 @@ extension SQSearchPageController:UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        let currentString = textField.text
-        let newString = (currentString! as NSString).replacingCharacters(in: range, with: string)
-        
-        searchWith(searchText: newString)
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: 1.0 , target: self, selector: #selector(self.searchWith), userInfo: nil, repeats: false)
         return true
     }
 }
