@@ -12,6 +12,7 @@ class SQMainPageReferenceIconsCell: UICollectionViewCell {
 
     @IBOutlet weak var imgReferenceIcon: UIImageView!
     
+    @IBOutlet weak var lblFormat: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,11 +23,15 @@ class SQMainPageReferenceIconsCell: UICollectionViewCell {
         return "SQMainPageReferenceIconsCell"
     }
     
-    func prepareView(byteData:String) {
-        
-        print("byteData = ",byteData)
-        
-        imgReferenceIcon.image = SquabBase64ConvertionHelper.sharedInstance.getImageFromBase64EncodedString(base64String:byteData)
+    func prepareView(byteData:String, format:String?) {
+        lblFormat.isHidden = true
+        if let format = format {
+            lblFormat.isHidden = false
+            lblFormat.text = format
+            imgReferenceIcon.image = #imageLiteral(resourceName: "ic_attachment")
+        }
+        else {
+            imgReferenceIcon.image = SquabBase64ConvertionHelper.sharedInstance.getImageFromBase64EncodedString(base64String:byteData)
+        }
     }
-
 }

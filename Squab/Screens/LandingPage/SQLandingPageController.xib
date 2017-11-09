@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13168.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13147.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -23,15 +23,15 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7uk-Sl-74O">
-                    <rect key="frame" x="162" y="30" width="50" height="50"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="7uk-Sl-74O">
+                    <rect key="frame" x="152" y="30" width="70" height="70"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="50" id="AJ8-sj-bOA"/>
-                        <constraint firstAttribute="height" constant="50" id="aTv-QB-6YN"/>
+                        <constraint firstAttribute="width" constant="70" id="AJ8-sj-bOA"/>
+                        <constraint firstAttribute="height" constant="70" id="aTv-QB-6YN"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPA-oX-Xus">
-                    <rect key="frame" x="10" y="90" width="355" height="30"/>
+                    <rect key="frame" x="10" y="110" width="355" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="S6W-DL-kme"/>
                     </constraints>
@@ -40,7 +40,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Get Started" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8pU-JW-olg">
-                    <rect key="frame" x="10" y="130" width="355" height="30"/>
+                    <rect key="frame" x="10" y="150" width="355" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="ZEh-DK-eic"/>
                     </constraints>
@@ -49,7 +49,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ac9-jd-6HM">
-                    <rect key="frame" x="15" y="180" width="345" height="477"/>
+                    <rect key="frame" x="15" y="200" width="345" height="457"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hM1-sY-D2R">
                             <rect key="frame" x="0.0" y="0.0" width="345" height="40"/>
@@ -171,5 +171,6 @@
     </objects>
     <resources>
         <image name="dropDownArrow" width="100" height="100"/>
+        <image name="logo" width="128" height="128"/>
     </resources>
 </document>

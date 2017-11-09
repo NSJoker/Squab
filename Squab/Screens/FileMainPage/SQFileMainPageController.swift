@@ -110,6 +110,10 @@ extension SQFileMainPageController:SQFileIndexMenuDelegate {
 }
 
 extension SQFileMainPageController:SQFileMainPageDetailsViewDelegate {
+    func showError(message: String) {
+        showErrorHud(position: .top, message: message, bgColor: .red, isPermanent: false)
+    }
+    
     func showItemWith(referenceItem: SQMainPageReferenceIconsList) {
         
         if referenceItem.format == nil || referenceItem.format?.characters.count == 0 {

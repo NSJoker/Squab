@@ -22,6 +22,7 @@ class SQBoardsPageController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        UIApplication.shared.statusBarStyle = .lightContent
         // Do any additional setup after loading the view.
         setupCollectionView()
     }
@@ -71,12 +72,15 @@ class SQBoardsPageController: UIViewController {
     //MARK: Target Methods
     
     @IBAction func didTapNotificationsButton(_ sender: Any) {
+        showErrorHud(position: .top, message: "This feature is not implemented", bgColor: .red, isPermanent: false)
     }
     
     @IBAction func didTapMessagesButton(_ sender: Any) {
+        showErrorHud(position: .top, message: "This feature is not implemented", bgColor: .red, isPermanent: false)
     }
     
     @IBAction func didTapRemindersButton(_ sender: Any) {
+        showErrorHud(position: .top, message: "This feature is not implemented", bgColor: .red, isPermanent: false)
     }
     
     @IBAction func didTapSearchButton(_ sender: Any) {

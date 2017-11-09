@@ -8,7 +8,6 @@
 
 import UIKit
 
-let IS_DEVELOPMENT_MODE = true
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,11 +19,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         UIApplication.shared.statusBarStyle = .lightContent
-        SquabDataCenter.sharedInstance.domain = "http://squab.avartaka.com:8083/"
+        
+        #if DEVELOPMENT
+            SquabDataCenter.sharedInstance.domain = "http://squab.avartaka.com:8083/"
+        #else
+            SquabDataCenter.sharedInstance.domain = "http://squab.avartaka.com:9083/"
+        #endif
         
         setUpRootViewController()
-        
-        
         return true
     }
     

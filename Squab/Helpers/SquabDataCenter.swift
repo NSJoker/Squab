@@ -49,6 +49,8 @@ class SquabDataCenter: NSObject {
             return
         }
         
+        
+        print("connectingURL = ",url)
         var request = getURLRequestWitPrefilledHeaders(connectingURL: URL)
         
         if shouldShowLoadingIndicator {

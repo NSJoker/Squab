@@ -75,7 +75,8 @@ public class SQSearchResults:Decodable {
     
     class func searchFor(searchText:String, returnBlock:@escaping returnBlock) {
         let mobileNumber = SquabUserManager.sharedInstance.getSavedMobileNumber()
-        let connectingURL = "http://squab.avartaka.com:9083/getstarted/getdoc?key=" + searchText + "&mobileno=" + mobileNumber
+        //let connectingURL = "http://squab.avartaka.com:9083/getstarted/getdoc?key=" + searchText + "&mobileno=" + mobileNumber
+        let connectingURL = "getstarted/getdoc?key=" + searchText + "&mobileno=" + mobileNumber
         
         SquabDataCenter.sharedInstance.sendRequest(connectingURL: connectingURL, httpMethod: .GET, parameters: nil, shouldShowLoadingIndicator: false) { (response, errorMessage) in
             

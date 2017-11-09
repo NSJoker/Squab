@@ -11,6 +11,7 @@ import WebKit
 
 protocol SQFileMainPageDetailsViewDelegate:class {
     func showItemWith(referenceItem:SQMainPageReferenceIconsList)
+    func showError(message:String)
 }
 
 class SQFileMainPageDetailsView: UIView {
@@ -98,6 +99,7 @@ class SQFileMainPageDetailsView: UIView {
     
     @IBAction func didChangeSwitch(_ sender: Any) {
         print("Switch Changed = ",String(mySwitch.isOn))
+        delegate?.showError(message: "This feature is not implemented")
     }
 }
 
@@ -109,7 +111,7 @@ extension SQFileMainPageDetailsView:UICollectionViewDataSource, UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SQMainPageReferenceIconsCell.reuseIdentifier(), for: indexPath) as! SQMainPageReferenceIconsCell
-        cell.prepareView(byteData: (mainDetailsResponse?.referenceIconsList![indexPath.row])?.byteData ?? "")
+        cell.prepareView(byteData: (mainDetailsResponse?.referenceIconsList![indexPath.row])?.byteData ?? "", format: mainDetailsResponse?.referenceIconsList![indexPath.row].format)
         return cell
     }
     

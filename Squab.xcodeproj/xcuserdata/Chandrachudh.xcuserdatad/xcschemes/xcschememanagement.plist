@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Squab Dev.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>14</integer>
+		</dict>
 		<key>Squab.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -13,6 +18,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>6C0B86F51F9A3D460039CAB1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6CFC340B1FB4B850009027A8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

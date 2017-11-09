@@ -14,7 +14,7 @@ class SQSearchPageController: UIViewController {
     @IBOutlet weak var txtSearch: UITextField!
     @IBOutlet weak var myCollectionView: UICollectionView!
     @IBOutlet weak var lblNoITems: UILabel!
-    
+    @IBOutlet weak var ImgSearch: UIImageView!
     
     var selectedSearchResult:SQSearchResults?
     
@@ -29,6 +29,9 @@ class SQSearchPageController: UIViewController {
         setupCollectionView()
         
         txtSearch.becomeFirstResponder()
+        
+        ImgSearch.image = #imageLiteral(resourceName: "ic_search").withRenderingMode(.alwaysTemplate)
+        ImgSearch.tintColor = UIColor.rgb(fromHex: 0x434343)
     }
     
     override func viewWillAppear(_ animated: Bool) {

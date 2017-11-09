@@ -31,11 +31,11 @@ class SQCountryPicker: UIView {
             addSubview(dismissControl)
             
             //get corrent country
-            let locale = Locale.current
-            let code = (locale as NSLocale).object(forKey: NSLocale.Key.countryCode) as! String?
+            //let locale = Locale.current
+            //let code = (locale as NSLocale).object(forKey: NSLocale.Key.countryCode) as! String?
             countryPicker.countryPickerDelegate = self
             countryPicker.showPhoneNumbers = true
-            countryPicker.setCountry(code!)
+            countryPicker.setCountry("IN")
             countryPicker.frame = CGRect(x: 0, y: 40, width: SCREEN_WIDTH-20, height: 240)
             pickerBaseView.addSubview(countryPicker)
         }

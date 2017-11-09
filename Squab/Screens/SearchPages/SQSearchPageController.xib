@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SQSearchPageController" customModule="Squab" customModuleProvider="target">
             <connections>
+                <outlet property="ImgSearch" destination="EGo-BV-akl" id="E3y-7R-rgb"/>
                 <outlet property="lblNoITems" destination="El2-Tp-QGX" id="PsG-5U-RCg"/>
                 <outlet property="lcCollectionViewBottomSpace" destination="zEQ-jG-GxG" id="TaQ-z5-pzS"/>
                 <outlet property="myCollectionView" destination="X1o-G2-acT" id="gsG-iQ-T3F"/>
@@ -30,27 +31,28 @@
                             <rect key="frame" x="60" y="25" width="305" height="40"/>
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="szP-72-v5t">
-                                    <rect key="frame" x="10" y="0.0" width="250" height="40"/>
+                                    <rect key="frame" x="10" y="0.0" width="265" height="40"/>
                                     <color key="textColor" red="0.26274509800000001" green="0.26274509800000001" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
                                 </textField>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EGo-BV-akl">
-                                    <rect key="frame" x="265" y="0.0" width="40" height="40"/>
-                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EGo-BV-akl">
+                                    <rect key="frame" x="280" y="5" width="20" height="30"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="40" id="pcJ-7G-cjE"/>
+                                        <constraint firstAttribute="width" constant="20" id="pcJ-7G-cjE"/>
                                     </constraints>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="EGo-BV-akl" firstAttribute="top" secondItem="tiA-QS-E0s" secondAttribute="top" id="25S-d5-1Bj"/>
+                                <constraint firstItem="EGo-BV-akl" firstAttribute="top" secondItem="tiA-QS-E0s" secondAttribute="top" constant="5" id="25S-d5-1Bj"/>
                                 <constraint firstAttribute="bottom" secondItem="szP-72-v5t" secondAttribute="bottom" id="7gR-UB-lVC"/>
-                                <constraint firstAttribute="bottom" secondItem="EGo-BV-akl" secondAttribute="bottom" id="CGf-Js-NcW"/>
+                                <constraint firstAttribute="bottom" secondItem="EGo-BV-akl" secondAttribute="bottom" constant="5" id="CGf-Js-NcW"/>
                                 <constraint firstItem="szP-72-v5t" firstAttribute="top" secondItem="tiA-QS-E0s" secondAttribute="top" id="RWe-AV-qp1"/>
                                 <constraint firstItem="EGo-BV-akl" firstAttribute="leading" secondItem="szP-72-v5t" secondAttribute="trailing" constant="5" id="bz3-H7-Eew"/>
-                                <constraint firstAttribute="trailing" secondItem="EGo-BV-akl" secondAttribute="trailing" id="eDd-yj-tq1"/>
+                                <constraint firstAttribute="trailing" secondItem="EGo-BV-akl" secondAttribute="trailing" constant="5" id="eDd-yj-tq1"/>
                                 <constraint firstItem="szP-72-v5t" firstAttribute="leading" secondItem="tiA-QS-E0s" secondAttribute="leading" constant="10" id="noK-Zm-x4p"/>
                             </constraints>
                         </view>
