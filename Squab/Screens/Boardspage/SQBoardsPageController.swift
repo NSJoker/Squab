@@ -18,6 +18,7 @@ class SQBoardsPageController: UIViewController {
     @IBOutlet weak var lblNoItemsToShow: UILabel!
     @IBOutlet weak var myCollectionView: UICollectionView!
     
+    var allRecentItems = [SQRecentFile]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,12 @@ class SQBoardsPageController: UIViewController {
         UIApplication.shared.statusBarStyle = .lightContent
         // Do any additional setup after loading the view.
         setupCollectionView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        allRecentItems = SquabRecentItemsManager.sharedInstance.getAllSavedItems()
+        myCollectionView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -90,13 +97,18 @@ class SQBoardsPageController: UIViewController {
 
 extension SQBoardsPageController:UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return allRecentItems.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SQRecentItemsCell.reuseIdentifier(), for: indexPath) as! SQRecentItemsCell
-        cell.populateViewWith()
+        cell.populateViewWith(recentItem: allRecentItems[indexPath.row])
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let recentFile = allRecentItems[indexPath.row]
+        openFileWithLanguage(language: recentFile.language!, selectedSearchResult: recentFile.searchResult!)
     }
 }

@@ -23,10 +23,15 @@ class SQRecentItemsCell: UICollectionViewCell {
         return "SQRecentItemsCell"
     }
     
-    func populateViewWith() {
-//        imgRecentItem.layer.borderColor = UIColor.black.withAlphaComponent(0.2).cgColor
-//        imgRecentItem.layer.borderWidth = 1.0
+    func populateViewWith(recentItem:SQRecentFile) {
         let itemSize = SQBoardsPageController.getRecentItemSize().0
         imgRecentItem.addShadowWith(shadowPath: UIBezierPath.init(rect: CGRect(x: 0, y: 0, width: itemSize-2, height: itemSize-2)).cgPath, shadowColor: UIColor.black.cgColor, shadowOpacity: 0.5, shadowRadius: 1.0, shadowOffset: CGSize.zero)
+        
+        imgRecentItem.image = nil
+        if let iconString = recentItem.searchResult?.icon {
+            imgRecentItem.image = SquabBase64ConvertionHelper.sharedInstance.getImageFromBase64EncodedString(base64String:iconString)
+        }
+        lblTitle.text = recentItem.searchResult?.title ?? ""
+        lblUploadedBy.text = recentItem.searchResult?.username ?? "-"
     }
 }

@@ -167,3 +167,25 @@ func showErrorHud(position: HudPosition, message:String, bgColor: HudBgColor, is
         
     }
 }
+
+extension UIViewController {
+    func openFileWithLanguage(language: String, selectedSearchResult:SQSearchResults) {
+        
+        selectedSearchResult.getOriginalFile(language: language, returnBlock: { (response, errorMessage) in
+            if let errorMessage = errorMessage {
+                print("errorMessage = ",errorMessage)
+            }
+            else {
+                let fileIndexs = response as! SQFileIndexModel
+                
+                let fileIndexController = SQFileIndexController()
+                fileIndexController.selectedLaguageKey = language
+                fileIndexController.fileIndexes = fileIndexs
+                fileIndexController.selectedSearchResult =  selectedSearchResult
+                let newNavController = UINavigationController.init(rootViewController: fileIndexController)
+                newNavController.isNavigationBarHidden = true
+                self.present(newNavController, animated: true, completion: nil)
+            }
+        })
+    }
+}

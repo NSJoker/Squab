@@ -191,22 +191,6 @@ extension SQSearchPageController:UICollectionViewDelegate, UICollectionViewDataS
 
 extension SQSearchPageController:SQLanguagePickerDelegate {
     func openFileWithLanguage(languageMap: SQLangListMap) {
-        self.selectedSearchResult?.getOriginalFile(language: languageMap.key ?? "En", returnBlock: { (response, errorMessage) in
-            
-            if let errorMessage = errorMessage {
-                print("errorMessage = ",errorMessage)
-            }
-            else {
-                let fileIndexs = response as! SQFileIndexModel
-                
-                let fileIndexController = SQFileIndexController()
-                fileIndexController.selectedLaguageKey = languageMap.key ?? "En"
-                fileIndexController.fileIndexes = fileIndexs
-                fileIndexController.selectedSearchResult =  self.selectedSearchResult
-                let newNavController = UINavigationController.init(rootViewController: fileIndexController)
-                newNavController.isNavigationBarHidden = true
-                self.present(newNavController, animated: true, completion: nil)
-            }
-        })
+        self.openFileWithLanguage(language: languageMap.key ?? "En", selectedSearchResult: self.selectedSearchResult!)
     }
 }

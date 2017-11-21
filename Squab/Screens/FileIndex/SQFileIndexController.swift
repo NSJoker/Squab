@@ -98,10 +98,8 @@ class SQFileIndexController: UIViewController {
     
     @IBAction func didTapReadButton(_ sender: Any) {
         openFileMainPageControllerWith(page: 0)
+        SquabRecentItemsManager.sharedInstance.addItemToRecent(searchResult: selectedSearchResult!, language: selectedLaguageKey)
     }
-    
-    
-    
 }
 
 extension SQFileIndexController:UITableViewDelegate, UITableViewDataSource {
@@ -124,5 +122,7 @@ extension SQFileIndexController:UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         openFileMainPageControllerWith(page: indexPath.row)
+        SquabRecentItemsManager.sharedInstance.addItemToRecent(searchResult: selectedSearchResult!, language: selectedLaguageKey)
+        
     }
 }

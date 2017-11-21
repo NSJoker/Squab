@@ -26,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             SquabDataCenter.sharedInstance.domain = "http://squab.avartaka.com:9083/"
         #endif
         
+        SquabRecentItemsManager.sharedInstance.removeAllRecentItems()
+        
         setUpRootViewController()
         return true
     }
