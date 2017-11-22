@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SQBoardsPageController: UIViewController {
+class SQBoardsPageController: UIViewController, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var btnNotifications: UIButton!
@@ -17,8 +17,12 @@ class SQBoardsPageController: UIViewController {
     @IBOutlet weak var btnSearch: UIButton!
     @IBOutlet weak var lblNoItemsToShow: UILabel!
     @IBOutlet weak var myCollectionView: UICollectionView!
+    @IBOutlet weak var btnCancelWiggle: UIButton!
+    @IBOutlet weak var navBarButtonBaseView: UIView!
     
     var allRecentItems = [SQRecentFile]()
+    
+    var wiggle = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +34,21 @@ class SQBoardsPageController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        getDataAndReload()
+    }
+    
+    func getDataAndReload() {
         allRecentItems = SquabRecentItemsManager.sharedInstance.getAllSavedItems()
+        if allRecentItems.count == 0 {
+            wiggle = false
+            switchWiggleOff()
+            lblNoItemsToShow.isHidden = false
+            myCollectionView.isHidden = true
+        }
+        else {
+            lblNoItemsToShow.isHidden = true
+            myCollectionView.isHidden = false
+        }
         myCollectionView.reloadData()
     }
 
@@ -76,6 +94,18 @@ class SQBoardsPageController: UIViewController {
         myCollectionView.animateAndReload()
     }
     
+    func longpressed(gesture: UILongPressGestureRecognizer) {
+        wiggle = true
+        myCollectionView.reloadData()
+        navBarButtonBaseView.isHidden = true
+        btnCancelWiggle.isHidden = false
+    }
+    
+    func switchWiggleOff() {
+        navBarButtonBaseView.isHidden = false
+        btnCancelWiggle.isHidden = true
+    }
+    
     //MARK: Target Methods
     
     @IBAction func didTapNotificationsButton(_ sender: Any) {
@@ -93,6 +123,12 @@ class SQBoardsPageController: UIViewController {
     @IBAction func didTapSearchButton(_ sender: Any) {
         self.navigationController?.pushViewController(SQSearchPageController(), animated: true)
     }
+    
+    @IBAction func didTapCancelWiggleButton(_ sender: Any) {
+        wiggle = false
+        myCollectionView.reloadData()
+        switchWiggleOff()
+    }
 }
 
 extension SQBoardsPageController:UICollectionViewDelegate, UICollectionViewDataSource {
@@ -104,11 +140,33 @@ extension SQBoardsPageController:UICollectionViewDelegate, UICollectionViewDataS
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SQRecentItemsCell.reuseIdentifier(), for: indexPath) as! SQRecentItemsCell
         cell.populateViewWith(recentItem: allRecentItems[indexPath.row])
+        
+        if(cell.longPressGestureRecognizer == nil){
+            cell.longPressGestureRecognizer = UILongPressGestureRecognizer.init(target: self, action: #selector(longpressed))
+            cell.longPressGestureRecognizer?.delegate = self
+            cell.isUserInteractionEnabled = true
+            cell.addGestureRecognizer(cell.longPressGestureRecognizer!)
+        }
+        
+        if wiggle {
+            cell.wigglewiggle()
+            cell.imgCross.isHidden = false
+        }
+        else {
+            cell.imgCross.isHidden = true
+        }
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let recentFile = allRecentItems[indexPath.row]
-        openFileWithLanguage(language: recentFile.language!, selectedSearchResult: recentFile.searchResult!)
+        if wiggle {
+            SquabRecentItemsManager.sharedInstance.removeFile(fileToRemove: recentFile)
+            getDataAndReload()
+        }
+        else {
+            openFileWithLanguage(language: recentFile.language!, selectedSearchResult: recentFile.searchResult!)
+        }
     }
 }

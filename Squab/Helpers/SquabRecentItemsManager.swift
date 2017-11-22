@@ -67,4 +67,28 @@ class SquabRecentItemsManager: NSObject {
     func removeAllRecentItems() {
         UserDefaults.standard.removeObject(forKey: saveLocation)
     }
+    
+    func removeFile(fileToRemove:SQRecentFile) {
+        var allRecentFiles = getAllSavedItems()
+        
+        var index:Int = -1
+        
+        for i in 0..<allRecentFiles.count {
+            let recentFile = allRecentFiles[i]
+            if recentFile.isSameAs(checkerFile: fileToRemove) {
+                index = i
+                break
+            }
+        }
+        
+        if index != -1 {
+            allRecentFiles.remove(at: index)
+        }
+        
+        var allDataToSave = [[String:Any]]()
+        allRecentFiles.forEach { (fileToSave) in
+            allDataToSave.append(fileToSave.getRecentFileDictionary())
+        }
+        UserDefaults.standard.set(allDataToSave, forKey: saveLocation)
+    }
 }

@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SQBoardsPageController" customModule="Squab" customModuleProvider="target">
             <connections>
+                <outlet property="btnCancelWiggle" destination="CmM-ay-lML" id="bSq-3j-jpG"/>
                 <outlet property="btnMessages" destination="aLl-QH-2NX" id="ZvY-9W-VTD"/>
                 <outlet property="btnNotifications" destination="Jba-y9-IPH" id="Fwp-cz-Hbf"/>
                 <outlet property="btnReminders" destination="Tkv-tJ-adJ" id="vnA-Ax-IwK"/>
@@ -18,6 +19,7 @@
                 <outlet property="lblNoItemsToShow" destination="r9Y-jl-XVt" id="vYi-Wh-sjY"/>
                 <outlet property="lblTitle" destination="0tP-9o-L7O" id="qlJ-wo-3KZ"/>
                 <outlet property="myCollectionView" destination="W8x-bp-pJA" id="gnd-JI-bmz"/>
+                <outlet property="navBarButtonBaseView" destination="koW-R3-aEu" id="aki-uG-zqJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -100,12 +102,28 @@
                                 <constraint firstAttribute="bottom" secondItem="Tkv-tJ-adJ" secondAttribute="bottom" id="zYG-Yz-clA"/>
                             </constraints>
                         </view>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CmM-ay-lML">
+                            <rect key="frame" x="275" y="20" width="100" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="T5B-cd-9Wl"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                            <state key="normal" title="Cancel">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="didTapCancelWiggleButton:" destination="-1" eventType="touchUpInside" id="BSj-0z-dbg"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.094117647060000004" green="0.40784313729999999" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="0tP-9o-L7O" secondAttribute="bottom" id="0ek-hX-dOA"/>
                         <constraint firstAttribute="trailing" secondItem="koW-R3-aEu" secondAttribute="trailing" id="1Sp-tS-3Ku"/>
+                        <constraint firstAttribute="trailing" secondItem="CmM-ay-lML" secondAttribute="trailing" id="41m-1W-HQi"/>
                         <constraint firstItem="0tP-9o-L7O" firstAttribute="top" secondItem="r8f-Lh-ufi" secondAttribute="top" constant="20" id="Bny-Ei-oFu"/>
+                        <constraint firstItem="CmM-ay-lML" firstAttribute="top" secondItem="r8f-Lh-ufi" secondAttribute="top" constant="20" id="DoS-if-lat"/>
+                        <constraint firstAttribute="bottom" secondItem="CmM-ay-lML" secondAttribute="bottom" id="L77-Ne-zw7"/>
                         <constraint firstAttribute="height" constant="60" id="OmU-uK-iER"/>
                         <constraint firstAttribute="bottom" secondItem="koW-R3-aEu" secondAttribute="bottom" id="Pdo-0S-orD"/>
                         <constraint firstItem="koW-R3-aEu" firstAttribute="top" secondItem="r8f-Lh-ufi" secondAttribute="top" constant="20" id="dqS-Ko-gKh"/>
