@@ -11,6 +11,7 @@ import UIKit
 import SwiftMessages
 import AVFoundation
 import AVKit
+import UserNotifications
 
 enum HudPosition {
     case top,bottom
@@ -187,5 +188,30 @@ extension UIViewController {
                 self.present(newNavController, animated: true, completion: nil)
             }
         })
+    }
+}
+
+extension UIViewController {
+    func applyForPushNotification() {
+        if appDelegate.shouldShowPushnotificationPermission == true {
+            if #available(iOS 10.0, *) {
+                let current = UNUserNotificationCenter.current()
+                current.getNotificationSettings(completionHandler: { (settings) in
+                    switch settings.authorizationStatus {
+                    case .authorized:
+                        appDelegate.shouldShowPushnotificationPermission = false
+                        break
+                    case.notDetermined:
+                        appDelegate.getPushNotificationPermission()
+                        break
+                    default:
+                        break
+                    }
+                })
+            } else {
+                // Fallback on earlier versions
+                appDelegate.getPushNotificationPermission()
+            }
+        }
     }
 }

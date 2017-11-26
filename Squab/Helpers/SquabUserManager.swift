@@ -11,6 +11,7 @@ import UIKit
 let LOGIN_USER_PHONE_NUMBER = "com.squab.login_user_phone_number"
 let LOGIN_USER_COUNTRY_CODE = "com.squab.login_user_country_code"
 let LOGIN_COMPLETED_KEY = "com.squab.login_completed"
+let DEVICE_TOKEN_KEY = "com.squab.device_token"
 
 enum LoginType {
     case notLoggedIn
@@ -81,5 +82,16 @@ class SquabUserManager: NSObject {
     
     func getSavedMobileNumber()->String {
         return getLoginResponseModel().selectedMobileNumber ?? ""
+    }
+    
+    func saveDeviceToken(deviceToken:String) {
+        UserDefaults.standard.set(deviceToken, forKey: DEVICE_TOKEN_KEY)
+    }
+    
+    func getDeviceToken()->String {
+        if let token = UserDefaults.standard.object(forKey: DEVICE_TOKEN_KEY) {
+            return token as! String
+        }
+        return ""
     }
 }

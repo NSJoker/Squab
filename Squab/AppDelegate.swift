@@ -7,18 +7,21 @@
 //
 
 import UIKit
+import UserNotifications
 
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var shouldShowPushnotificationPermission = false
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         UIApplication.shared.statusBarStyle = .lightContent
+        checkForPushNotificationPermission()
         
         #if DEVELOPMENT
             SquabDataCenter.sharedInstance.domain = "http://squab.avartaka.com:8083/"
@@ -74,7 +77,66 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+}
 
-
+extension AppDelegate {
+    func checkForPushNotificationPermission() {
+        shouldShowPushnotificationPermission = false
+        let deviceToken = SquabUserManager.sharedInstance.getDeviceToken()
+        if deviceToken.characters.count == 0 {
+            shouldShowPushnotificationPermission = true
+        }
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().getNotificationSettings(completionHandler: { (settings) in
+                if settings.authorizationStatus != .authorized {
+                    // Notification permission was not already granted
+                    self.shouldShowPushnotificationPermission = true
+                }
+            })
+        } else {
+            // Fallback on earlier versions
+            if UIApplication.shared.isRegisteredForRemoteNotifications == false {
+                shouldShowPushnotificationPermission = true
+            }
+        }
+    }
+    
+    func getPushNotificationPermission() {
+        let application = UIApplication.shared
+        //push Notification
+        if #available(iOS 10.0, *) {
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in
+                if granted {
+                }
+                else {
+                }
+            }
+            application.registerForRemoteNotifications()
+        } else {
+            let notificationTypes: UIUserNotificationType = [UIUserNotificationType.alert, UIUserNotificationType.badge, UIUserNotificationType.sound]
+            let pushNotificationSettings = UIUserNotificationSettings.init(types: notificationTypes, categories: nil)
+            
+            application.registerUserNotificationSettings(pushNotificationSettings)
+            application.registerForRemoteNotifications()
+        }
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        
+        var pushToken = String(format: "%@", deviceToken as CVarArg)
+        pushToken = pushToken.trimmingCharacters(in: CharacterSet(charactersIn: "<>"))
+        pushToken = pushToken.replacingOccurrences(of: " ", with: "")
+        print("DEVICE TOKEN ====== \(pushToken)")
+        SquabUserManager.sharedInstance.saveDeviceToken(deviceToken: pushToken)
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        SquabUserManager.sharedInstance.saveDeviceToken(deviceToken: "")
+    }
+    
+    private func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        print("Just received remote notification: ",userInfo)
+    }
 }
 

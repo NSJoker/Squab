@@ -30,6 +30,7 @@ class SQBoardsPageController: UIViewController, UIGestureRecognizerDelegate {
         UIApplication.shared.statusBarStyle = .lightContent
         // Do any additional setup after loading the view.
         setupCollectionView()
+        applyForPushNotification()
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -40,7 +40,7 @@ class SQUserDetailsEntryController: UIViewController {
     
     //MARK: TARGET METHODS
     @IBAction func didTapNextButton(_ sender: Any) {
-        
+        view.endEditing(true)
         if txtFirstname.text?.trimmingCharacters(in: .whitespacesAndNewlines).characters.count == 0 {
             showAlertWith(buttonTitle: "OK", message: "Firstname cannot be empty", shouldPopCurrentVC: NO)
             return

@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
 let APP_NAME = "Squab"
 
 let SCREEN_HEIGHT = UIScreen.main.bounds.height
