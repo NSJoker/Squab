@@ -12,6 +12,7 @@ import WebKit
 protocol SQFileMainPageDetailsViewDelegate:class {
     func showItemWith(referenceItem:SQMainPageReferenceIconsList)
     func showError(message:String)
+    func showErrorAlert(message:String)
 }
 
 class SQFileMainPageDetailsView: UIView {
@@ -99,7 +100,12 @@ class SQFileMainPageDetailsView: UIView {
     
     @IBAction func didChangeSwitch(_ sender: Any) {
         print("Switch Changed = ",String(mySwitch.isOn))
-        delegate?.showError(message: "This feature is not implemented")
+        
+        let datePicker:SQReminderDatePickerView = Bundle.main.loadNibNamed("SQReminderDatePickerView", owner: self, options: nil)![0] as! SQReminderDatePickerView
+        datePicker.delegate = self
+        datePicker.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT)
+        UIApplication.shared.keyWindow?.addSubview(datePicker)
+        datePicker.animateAndShow()
     }
 }
 
@@ -119,5 +125,11 @@ extension SQFileMainPageDetailsView:UICollectionViewDataSource, UICollectionView
         
         let selectedReferenceIcon = mainDetailsResponse?.referenceIconsList![indexPath.row]
         delegate?.showItemWith(referenceItem: selectedReferenceIcon!)
+    }
+}
+
+extension SQFileMainPageDetailsView:SQReminderDatePickerViewDelegate {
+    func showCustomeAlert(message: String) {
+        delegate?.showErrorAlert(message: message)
     }
 }

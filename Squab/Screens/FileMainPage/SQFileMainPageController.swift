@@ -110,6 +110,10 @@ extension SQFileMainPageController:SQFileIndexMenuDelegate {
 }
 
 extension SQFileMainPageController:SQFileMainPageDetailsViewDelegate {
+    func showErrorAlert(message:String) {
+        self.showAlertWith(buttonTitle: "OK", message: message, shouldPopCurrentVC: NO)
+    }
+    
     func showError(message: String) {
         showErrorHud(position: .top, message: message, bgColor: .red, isPermanent: false)
     }

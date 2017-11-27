@@ -14,5 +14,6 @@ pod 'SwiftyJSON', '3.0.0'
 pod 'NVActivityIndicatorView'
 pod 'MXSegmentedPager'
 pod 'CountryPickerSwift'
+pod 'Firebase/Core'
 
 end

@@ -117,7 +117,7 @@ public class SQLoginPhoneModel:Decodable {
             return
         }
         
-        let deviceToken = "weibiefbiwebf"
+        let deviceToken = SquabUserManager.sharedInstance.getDeviceToken()
         var code = countryCode
         if code.contains("+") {
             let rangeOfPlus = (code as NSString).range(of: "+")

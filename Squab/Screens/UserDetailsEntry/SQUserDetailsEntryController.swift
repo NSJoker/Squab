@@ -22,6 +22,7 @@ class SQUserDetailsEntryController: UIViewController {
         disableNextButton()
         txtFirstname.delegate = self
         txtLastname.delegate = self
+        applyForPushNotification()
     }
 
     override func didReceiveMemoryWarning() {
