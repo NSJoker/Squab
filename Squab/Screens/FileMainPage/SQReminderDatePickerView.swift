@@ -15,6 +15,7 @@ enum ReminderSetterMode {
 
 protocol SQReminderDatePickerViewDelegate:class {
     func showCustomeAlert(message:String)
+    func setReminderForCurrentDocAt(date:Date)
 }
 
 class SQReminderDatePickerView: UIView {
@@ -76,14 +77,8 @@ class SQReminderDatePickerView: UIView {
                 delegate?.showCustomeAlert(message: "Selected time must be greater than current time")
                 return
             }
-            var selectedTime = dateTimePicker.date
+            delegate?.setReminderForCurrentDocAt(date: dateTimePicker.date)
             break
         }
     }
-    
-    
-    
-    
-    
-    
 }

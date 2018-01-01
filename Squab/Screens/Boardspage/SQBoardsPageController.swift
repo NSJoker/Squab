@@ -30,6 +30,15 @@ class SQBoardsPageController: UIViewController, UIGestureRecognizerDelegate {
         UIApplication.shared.statusBarStyle = .lightContent
         // Do any additional setup after loading the view.
         setupCollectionView()
+        showreminder()
+    }
+    
+    func showreminder() {
+        let datePicker:SQReminderDatePickerView = Bundle.main.loadNibNamed("SQReminderDatePickerView", owner: self, options: nil)![0] as! SQReminderDatePickerView
+//        datePicker.delegate = self
+        datePicker.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT)
+        UIApplication.shared.keyWindow?.addSubview(datePicker)
+        datePicker.animateAndShow()
     }
     
     override func viewWillAppear(_ animated: Bool) {

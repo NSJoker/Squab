@@ -49,7 +49,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Squab.xcscheme</key>
+		<key>Pods-defaults-Squab Dev.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-defaults-Squab.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

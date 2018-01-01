@@ -30,6 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #endif
                 
         setUpRootViewController()
+        
+        SquabReminderManager.sharedInstance.verifyAndSendLocalNotification()
+        
         return true
     }
     

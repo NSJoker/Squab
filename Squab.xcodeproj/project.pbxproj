@@ -48,6 +48,9 @@
 		6C5107C21F9D82DA001A5FCD /* SQSearchPageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C5107C01F9D82DA001A5FCD /* SQSearchPageController.xib */; };
 		6C5107C91F9D87F4001A5FCD /* SQSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5107C71F9D87F4001A5FCD /* SQSearchResultCell.swift */; };
 		6C5107CA1F9D87F4001A5FCD /* SQSearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C5107C81F9D87F4001A5FCD /* SQSearchResultCell.xib */; };
+		6C6D40E41FFA11B80092693A /* SQReminderDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC824811FCAD3950073897A /* SQReminderDatePickerView.swift */; };
+		6C6D40E51FFA11CE0092693A /* SquabRecentItemsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD6DBB81FC36126009F4E02 /* SquabRecentItemsManager.swift */; };
+		6C6D40E71FFA19620092693A /* SquabReminderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6D40E61FFA19620092693A /* SquabReminderManager.swift */; };
 		6C822FCD1FAF532100F5420B /* SQMainPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C822FCC1FAF532000F5420B /* SQMainPageModel.swift */; };
 		6C9095481FA17E2F00B311E9 /* SQLanguagePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9095461FA17E2F00B311E9 /* SQLanguagePickerCell.swift */; };
 		6C9095491FA17E2F00B311E9 /* SQLanguagePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C9095471FA17E2F00B311E9 /* SQLanguagePickerCell.xib */; };
@@ -139,7 +142,9 @@
 		6CFC8FD41F9ED1FE00F6192F /* SQSearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFC8FD31F9ED1FD00F6192F /* SQSearchResults.swift */; };
 		6CFC8FD61F9EDC1000F6192F /* SquabBase64ConvertionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFC8FD51F9EDC1000F6192F /* SquabBase64ConvertionHelper.swift */; };
 		6CFC8FD81F9EDD6300F6192F /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFC8FD71F9EDD6300F6192F /* StringExtensions.swift */; };
+		767404B8003825855BAED0E2 /* Pods_defaults_Squab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA273AC8B64CE31649EE2E4F /* Pods_defaults_Squab.framework */; };
 		CAB3DD940BE5C7973E7A2959 /* Pods_Squab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC8D62C51BFF0688C1DD0A4 /* Pods_Squab.framework */; };
+		E888C4ACA455B4237D7E6F6D /* Pods_defaults_Squab_Dev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE63A5272E7BF2A5957A641B /* Pods_defaults_Squab_Dev.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -185,6 +190,7 @@
 		6C5107C01F9D82DA001A5FCD /* SQSearchPageController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SQSearchPageController.xib; path = Screens/SearchPages/SQSearchPageController.xib; sourceTree = "<group>"; };
 		6C5107C71F9D87F4001A5FCD /* SQSearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SQSearchResultCell.swift; path = Screens/SearchPages/SQSearchResultCell.swift; sourceTree = "<group>"; };
 		6C5107C81F9D87F4001A5FCD /* SQSearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SQSearchResultCell.xib; path = Screens/SearchPages/SQSearchResultCell.xib; sourceTree = "<group>"; };
+		6C6D40E61FFA19620092693A /* SquabReminderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SquabReminderManager.swift; path = Helpers/SquabReminderManager.swift; sourceTree = "<group>"; };
 		6C822FCC1FAF532000F5420B /* SQMainPageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SQMainPageModel.swift; path = Models/SQMainPageModel.swift; sourceTree = "<group>"; };
 		6C9095461FA17E2F00B311E9 /* SQLanguagePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SQLanguagePickerCell.swift; path = Screens/SearchPages/SQLanguagePickerCell.swift; sourceTree = "<group>"; };
 		6C9095471FA17E2F00B311E9 /* SQLanguagePickerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SQLanguagePickerCell.xib; path = Screens/SearchPages/SQLanguagePickerCell.xib; sourceTree = "<group>"; };
@@ -217,7 +223,13 @@
 		6CFC8FD51F9EDC1000F6192F /* SquabBase64ConvertionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SquabBase64ConvertionHelper.swift; path = Helpers/SquabBase64ConvertionHelper.swift; sourceTree = "<group>"; };
 		6CFC8FD71F9EDD6300F6192F /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringExtensions.swift; path = Extensions/StringExtensions.swift; sourceTree = "<group>"; };
 		733CFD734E07694A9A139739 /* Pods-Squab.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Squab.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Squab/Pods-Squab.debug.xcconfig"; sourceTree = "<group>"; };
+		88501BADD4634E1271C2783A /* Pods-defaults-Squab Dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-defaults-Squab Dev.release.xcconfig"; path = "Pods/Target Support Files/Pods-defaults-Squab Dev/Pods-defaults-Squab Dev.release.xcconfig"; sourceTree = "<group>"; };
+		8F7EF9AF4ACD90A8F48A120C /* Pods-defaults-Squab Dev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-defaults-Squab Dev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-defaults-Squab Dev/Pods-defaults-Squab Dev.debug.xcconfig"; sourceTree = "<group>"; };
+		A9C7ECDE1416A042A670FAA9 /* Pods-defaults-Squab.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-defaults-Squab.debug.xcconfig"; path = "Pods/Target Support Files/Pods-defaults-Squab/Pods-defaults-Squab.debug.xcconfig"; sourceTree = "<group>"; };
 		B8CB8694FA8597EB225E8DDA /* Pods-Squab.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Squab.release.xcconfig"; path = "Pods/Target Support Files/Pods-Squab/Pods-Squab.release.xcconfig"; sourceTree = "<group>"; };
+		BE63A5272E7BF2A5957A641B /* Pods_defaults_Squab_Dev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_defaults_Squab_Dev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE6C8EFF2FC1B96CB2696CB1 /* Pods-defaults-Squab.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-defaults-Squab.release.xcconfig"; path = "Pods/Target Support Files/Pods-defaults-Squab/Pods-defaults-Squab.release.xcconfig"; sourceTree = "<group>"; };
+		CA273AC8B64CE31649EE2E4F /* Pods_defaults_Squab.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_defaults_Squab.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC8D62C51BFF0688C1DD0A4 /* Pods_Squab.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Squab.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -228,6 +240,7 @@
 			files = (
 				CAB3DD940BE5C7973E7A2959 /* Pods_Squab.framework in Frameworks */,
 				1C2864679A97853DB580C546 /* Pods_Squab.framework in Frameworks */,
+				767404B8003825855BAED0E2 /* Pods_defaults_Squab.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +248,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E888C4ACA455B4237D7E6F6D /* Pods_defaults_Squab_Dev.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +370,7 @@
 				6CDEC45E1F9BB83900A25353 /* SquabUserManager.swift */,
 				6CFC8FD51F9EDC1000F6192F /* SquabBase64ConvertionHelper.swift */,
 				6CD6DBB81FC36126009F4E02 /* SquabRecentItemsManager.swift */,
+				6C6D40E61FFA19620092693A /* SquabReminderManager.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -446,6 +461,8 @@
 			isa = PBXGroup;
 			children = (
 				FAC8D62C51BFF0688C1DD0A4 /* Pods_Squab.framework */,
+				CA273AC8B64CE31649EE2E4F /* Pods_defaults_Squab.framework */,
+				BE63A5272E7BF2A5957A641B /* Pods_defaults_Squab_Dev.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -455,6 +472,10 @@
 			children = (
 				733CFD734E07694A9A139739 /* Pods-Squab.debug.xcconfig */,
 				B8CB8694FA8597EB225E8DDA /* Pods-Squab.release.xcconfig */,
+				A9C7ECDE1416A042A670FAA9 /* Pods-defaults-Squab.debug.xcconfig */,
+				BE6C8EFF2FC1B96CB2696CB1 /* Pods-defaults-Squab.release.xcconfig */,
+				8F7EF9AF4ACD90A8F48A120C /* Pods-defaults-Squab Dev.debug.xcconfig */,
+				88501BADD4634E1271C2783A /* Pods-defaults-Squab Dev.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -486,9 +507,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6CFC34521FB4B850009027A8 /* Build configuration list for PBXNativeTarget "Squab Dev" */;
 			buildPhases = (
+				E84757132966DE769A87B798 /* [CP] Check Pods Manifest.lock */,
 				6CFC340D1FB4B850009027A8 /* Sources */,
 				6CFC34381FB4B850009027A8 /* Frameworks */,
 				6CFC343A1FB4B850009027A8 /* Resources */,
+				B0AC7835DBB3D85EB9DE9259 /* [CP] Embed Pods Frameworks */,
+				FE7F9A95AD30C203C4E48BEE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -621,7 +645,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Squab/Pods-Squab-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-defaults-Squab/Pods-defaults-Squab-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6C53E5C0A1AE90B22129ACF4 /* [CP] Check Pods Manifest.lock */ = {
@@ -639,6 +663,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		B0AC7835DBB3D85EB9DE9259 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-defaults-Squab Dev/Pods-defaults-Squab Dev-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		CF7921BBE17E9871988943DA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -651,7 +690,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Squab/Pods-Squab-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-defaults-Squab/Pods-defaults-Squab-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E84757132966DE769A87B798 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FE7F9A95AD30C203C4E48BEE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-defaults-Squab Dev/Pods-defaults-Squab Dev-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -685,6 +754,7 @@
 				6C2454821FB0BECB007E6513 /* SQWebViewController.swift in Sources */,
 				6C5107C11F9D82DA001A5FCD /* SQSearchPageController.swift in Sources */,
 				6CFC8FD81F9EDD6300F6192F /* StringExtensions.swift in Sources */,
+				6C6D40E71FFA19620092693A /* SquabReminderManager.swift in Sources */,
 				6C059C801FA73D1D00950F38 /* SQFileMainPageController.swift in Sources */,
 				6CDEC4631F9BBD0C00A25353 /* SQUserDetailsEntryController.swift in Sources */,
 				6C1858A31FA7335D00C1F605 /* SQFileIndexModel.swift in Sources */,
@@ -750,7 +820,9 @@
 				6CFC342F1FB4B850009027A8 /* UIViewExtension.swift in Sources */,
 				6CFC34301FB4B850009027A8 /* SQFileIndexValue.swift in Sources */,
 				6CFC34311FB4B850009027A8 /* SQSearchResultCell.swift in Sources */,
+				6C6D40E51FFA11CE0092693A /* SquabRecentItemsManager.swift in Sources */,
 				6CFC34321FB4B850009027A8 /* SQImageViewerController.swift in Sources */,
+				6C6D40E41FFA11B80092693A /* SQReminderDatePickerView.swift in Sources */,
 				6CFC34331FB4B850009027A8 /* UIViewControllerExtension.swift in Sources */,
 				6CFC34341FB4B850009027A8 /* SQFileIndexMenuCell.swift in Sources */,
 				6CFC34351FB4B850009027A8 /* SQRequestSuccessStatusModel.swift in Sources */,
@@ -876,7 +948,7 @@
 		};
 		6C0B87091F9A3D460039CAB1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 733CFD734E07694A9A139739 /* Pods-Squab.debug.xcconfig */;
+			baseConfigurationReference = A9C7ECDE1416A042A670FAA9 /* Pods-defaults-Squab.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Squab/Squab.entitlements;
@@ -895,7 +967,7 @@
 		};
 		6C0B870A1F9A3D460039CAB1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B8CB8694FA8597EB225E8DDA /* Pods-Squab.release.xcconfig */;
+			baseConfigurationReference = BE6C8EFF2FC1B96CB2696CB1 /* Pods-defaults-Squab.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Squab/Squab.entitlements;
@@ -914,6 +986,7 @@
 		};
 		6CFC34531FB4B850009027A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F7EF9AF4ACD90A8F48A120C /* Pods-defaults-Squab Dev.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Squab Dev.entitlements";
@@ -930,6 +1003,7 @@
 		};
 		6CFC34541FB4B850009027A8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88501BADD4634E1271C2783A /* Pods-defaults-Squab Dev.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Squab Dev.entitlements";
