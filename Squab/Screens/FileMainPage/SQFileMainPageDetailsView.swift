@@ -134,12 +134,7 @@ extension SQFileMainPageDetailsView:SQReminderDatePickerViewDelegate {
     }
     
     func setReminderForCurrentDocAt(date: Date) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YYY/MMM/dd - hh:mm:ss a"
-        print("Selected date for reminder = ",dateFormatter.string(from: date))
-        
-        
-        
+        SquabReminderManager.sharedInstance.addNewReminder(searchResult: selectedSearchResult!, date: date)
         
     }
 }

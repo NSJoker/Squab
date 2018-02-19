@@ -15,6 +15,7 @@ pod 'NVActivityIndicatorView'
 pod 'MXSegmentedPager'
 pod 'CountryPickerSwift'
 pod 'Firebase/Core'
+pod 'Firebase/Messaging'
 
 target 'Squab'
 target 'Squab Dev'

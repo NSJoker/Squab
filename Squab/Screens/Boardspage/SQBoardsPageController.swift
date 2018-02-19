@@ -30,7 +30,6 @@ class SQBoardsPageController: UIViewController, UIGestureRecognizerDelegate {
         UIApplication.shared.statusBarStyle = .lightContent
         // Do any additional setup after loading the view.
         setupCollectionView()
-        showreminder()
     }
     
     func showreminder() {
@@ -91,7 +90,7 @@ class SQBoardsPageController: UIViewController, UIGestureRecognizerDelegate {
         layout.itemSize = CGSize(width: itemSize, height: itemSize+50)
         layout.minimumLineSpacing = gap
         layout.minimumInteritemSpacing = gap
-        layout.sectionInset = UIEdgeInsetsMake(20, 0, 20, 0)
+        layout.sectionInset = UIEdgeInsetsMake(20, 10, 20, 10)
         myCollectionView.setCollectionViewLayout(layout, animated: false)
         
         myCollectionView.delegate = self
@@ -126,7 +125,7 @@ class SQBoardsPageController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @IBAction func didTapRemindersButton(_ sender: Any) {
-        showErrorHud(position: .top, message: "This feature is not implemented", bgColor: .red, isPermanent: false)
+        navigationController?.pushViewController(SQRemindersController(), animated: true)
     }
     
     @IBAction func didTapSearchButton(_ sender: Any) {

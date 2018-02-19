@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yfE-p4-4jS">
-                        <rect key="frame" x="1" y="10" width="139" height="139"/>
+                        <rect key="frame" x="10" y="10" width="130" height="130"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="utP-vV-dMk">
@@ -51,7 +51,7 @@
                         </constraints>
                     </view>
                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="closeCircleCross" translatesAutoresizingMaskIntoConstraints="NO" id="K38-x4-fYF">
-                        <rect key="frame" x="130" y="0.0" width="20" height="20"/>
+                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -59,28 +59,43 @@
                             <constraint firstAttribute="width" constant="20" id="avi-oU-4Yr"/>
                         </constraints>
                     </imageView>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Update" translatesAutoresizingMaskIntoConstraints="NO" id="v6p-sc-DzX">
+                        <rect key="frame" x="130" y="0.0" width="20" height="20"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="Gvo-OS-r4c"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="U2c-q3-Pbe"/>
+                            <constraint firstAttribute="width" constant="20" id="gTH-zN-RlT"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="k4D-aE-uAQ"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="yfE-p4-4jS" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="1" id="6vE-nq-khH"/>
+                <constraint firstItem="yfE-p4-4jS" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="6vE-nq-khH"/>
                 <constraint firstItem="utP-vV-dMk" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Adw-4h-uTf"/>
                 <constraint firstAttribute="bottom" secondItem="utP-vV-dMk" secondAttribute="bottom" id="BvH-zv-69q"/>
-                <constraint firstAttribute="trailing" secondItem="K38-x4-fYF" secondAttribute="trailing" id="Cvy-yf-x1f"/>
+                <constraint firstItem="v6p-sc-DzX" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="CRK-wj-7gI"/>
                 <constraint firstAttribute="trailing" secondItem="yfE-p4-4jS" secondAttribute="trailing" constant="10" id="Xv7-s8-crc"/>
-                <constraint firstItem="utP-vV-dMk" firstAttribute="top" secondItem="yfE-p4-4jS" secondAttribute="bottom" constant="1" id="ZWc-p3-gel"/>
+                <constraint firstItem="utP-vV-dMk" firstAttribute="top" secondItem="yfE-p4-4jS" secondAttribute="bottom" constant="10" id="ZWc-p3-gel"/>
+                <constraint firstItem="K38-x4-fYF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ciT-Ie-EKf"/>
                 <constraint firstItem="yfE-p4-4jS" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="dsu-S3-tFl"/>
+                <constraint firstAttribute="trailing" secondItem="v6p-sc-DzX" secondAttribute="trailing" id="feD-Ih-0KE"/>
                 <constraint firstAttribute="trailing" secondItem="utP-vV-dMk" secondAttribute="trailing" id="nO3-He-IjN"/>
                 <constraint firstItem="K38-x4-fYF" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="oYm-Pv-TIR"/>
             </constraints>
             <connections>
                 <outlet property="imgCross" destination="K38-x4-fYF" id="AOw-b0-io4"/>
                 <outlet property="imgRecentItem" destination="yfE-p4-4jS" id="sig-cS-isX"/>
+                <outlet property="imgUpdate" destination="v6p-sc-DzX" id="HB5-2X-T3n"/>
                 <outlet property="lblTitle" destination="Blr-uO-1SA" id="24L-gi-Jfb"/>
                 <outlet property="lblUploadedBy" destination="Ky8-h2-CrO" id="GIR-ad-rQ7"/>
             </connections>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="Update" width="120" height="120"/>
         <image name="closeCircleCross" width="30" height="30"/>
     </resources>
 </document>

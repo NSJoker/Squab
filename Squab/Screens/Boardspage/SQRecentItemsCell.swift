@@ -14,6 +14,7 @@ class SQRecentItemsCell: UICollectionViewCell {
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblUploadedBy: UILabel!
     @IBOutlet weak var imgCross: UIImageView!
+    @IBOutlet weak var imgUpdate: UIImageView!
     
     var longPressGestureRecognizer:UILongPressGestureRecognizer?
     
@@ -27,7 +28,7 @@ class SQRecentItemsCell: UICollectionViewCell {
     
     func populateViewWith(recentItem:SQRecentFile) {
         let itemSize = SQBoardsPageController.getRecentItemSize().0
-        imgRecentItem.addShadowWith(shadowPath: UIBezierPath.init(rect: CGRect(x: 0, y: 0, width: itemSize-12, height: itemSize-12)).cgPath, shadowColor: UIColor.black.cgColor, shadowOpacity: 0.5, shadowRadius: 1.0, shadowOffset: CGSize.zero)
+        imgRecentItem.addShadowWith(shadowPath: UIBezierPath.init(rect: CGRect(x: 0, y: 0, width: itemSize-22, height: itemSize-22)).cgPath, shadowColor: UIColor.black.cgColor, shadowOpacity: 0.2, shadowRadius: 10.0, shadowOffset: CGSize.zero)
         
         imgRecentItem.image = nil
         if let iconString = recentItem.searchResult?.icon {
@@ -37,6 +38,13 @@ class SQRecentItemsCell: UICollectionViewCell {
         lblUploadedBy.text = recentItem.searchResult?.username ?? "-"
         imgCross.layer.cornerRadius = 10.0
         imgCross.clipsToBounds = true
+        imgUpdate.layer.cornerRadius = 10.0
+        imgUpdate.clipsToBounds = true
+        
+        imgUpdate.isHidden = true
+        if recentItem.hasUnSeenUpdate {
+            imgUpdate.isHidden = false
+        }
     }
     
     func wigglewiggle(){

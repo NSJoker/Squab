@@ -78,6 +78,7 @@ class SQReminderDatePickerView: UIView {
                 return
             }
             delegate?.setReminderForCurrentDocAt(date: dateTimePicker.date)
+            self.animateAndHide()
             break
         }
     }

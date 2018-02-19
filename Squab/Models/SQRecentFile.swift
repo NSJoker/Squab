@@ -14,6 +14,7 @@ class SQRecentFile: NSObject {
     public var language:String?
     public var lastUpdatedTime:TimeInterval?
     public var searchResult:SQSearchResults?
+    public var hasUnSeenUpdate = false
     
     func getRecentFileDictionary() -> [String:Any] {
         
@@ -22,6 +23,7 @@ class SQRecentFile: NSObject {
         dict["language"] = language
         dict["searchResult"] = searchResult?.dictionaryRepresentation()
         dict["lastUpdatedTime"] = lastUpdatedTime
+        dict["hasUnSeenUpdate"] = hasUnSeenUpdate
         
         return dict
     }
@@ -34,6 +36,9 @@ class SQRecentFile: NSObject {
         recentFile.searchResult = SQSearchResults.init(json: JSON(dict["searchResult"]!))
         recentFile.lastUpdatedTime = dict["lastUpdatedTime"] as? TimeInterval
         
+        if dict.keys.contains("hasUnSeenUpdate") {
+            recentFile.hasUnSeenUpdate = (dict["hasUnSeenUpdate"] as? Bool)!
+        }
         return recentFile
     }
     

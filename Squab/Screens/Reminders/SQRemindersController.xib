@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SQRemindersController" customModule="Squab" customModuleProvider="target">
+            <connections>
+                <outlet property="lblNoItemsLabel" destination="W6b-aw-0Ow" id="wtC-F0-Wau"/>
+                <outlet property="myTableView" destination="cpC-pC-iNW" id="5c9-Yq-kal"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UPE-VS-8af">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminders" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xmC-Rg-JVE">
+                            <rect key="frame" x="50" y="25" width="101.5" height="50"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kUG-cU-zPn">
+                            <rect key="frame" x="0.0" y="25" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="1pN-gs-4tM"/>
+                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="E44-oF-DSw"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="McW-Mq-PAT"/>
+                                <constraint firstAttribute="width" constant="50" id="O1u-Qz-7li"/>
+                                <constraint firstAttribute="height" constant="50" id="o04-wA-JFH"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="yCI-vI-hSE"/>
+                            </constraints>
+                            <state key="normal" image="ic_back_arrow"/>
+                            <connections>
+                                <action selector="didTapBackButton:" destination="-1" eventType="touchUpInside" id="52h-YT-O1W"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.094117647060000004" green="0.40784313729999999" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="kUG-cU-zPn" secondAttribute="bottom" id="56B-UY-PUy"/>
+                        <constraint firstAttribute="height" constant="75" id="A70-7o-VFn"/>
+                        <constraint firstItem="xmC-Rg-JVE" firstAttribute="leading" secondItem="kUG-cU-zPn" secondAttribute="trailing" id="Cni-fw-i4S"/>
+                        <constraint firstItem="kUG-cU-zPn" firstAttribute="leading" secondItem="UPE-VS-8af" secondAttribute="leading" id="aYt-CX-a41"/>
+                        <constraint firstAttribute="bottom" secondItem="xmC-Rg-JVE" secondAttribute="bottom" id="shD-ek-Wzp"/>
+                        <constraint firstItem="xmC-Rg-JVE" firstAttribute="top" secondItem="kUG-cU-zPn" secondAttribute="top" id="tBt-Wa-dGm"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cpC-pC-iNW">
+                    <rect key="frame" x="0.0" y="75" width="375" height="592"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have no reminders set." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W6b-aw-0Ow">
+                    <rect key="frame" x="10" y="95" width="355" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="de2-No-kaX"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <color key="textColor" red="0.26274509800000001" green="0.26274509800000001" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="cpC-pC-iNW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="34N-mw-zjR"/>
+                <constraint firstItem="cpC-pC-iNW" firstAttribute="top" secondItem="UPE-VS-8af" secondAttribute="bottom" id="4Gs-Bw-0RE"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="UPE-VS-8af" secondAttribute="trailing" id="5Qm-cW-Wh8"/>
+                <constraint firstItem="W6b-aw-0Ow" firstAttribute="top" secondItem="UPE-VS-8af" secondAttribute="bottom" constant="20" id="DJw-xj-qtw"/>
+                <constraint firstItem="W6b-aw-0Ow" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="IzA-bx-fEv"/>
+                <constraint firstItem="UPE-VS-8af" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="O1u-5x-R2N"/>
+                <constraint firstItem="UPE-VS-8af" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="WaW-46-wiY"/>
+                <constraint firstAttribute="bottom" secondItem="cpC-pC-iNW" secondAttribute="bottom" id="ci1-RW-9GY"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="cpC-pC-iNW" secondAttribute="trailing" id="oST-Jb-21e"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="W6b-aw-0Ow" secondAttribute="trailing" constant="10" id="qCL-1t-Euc"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_back_arrow" width="16" height="26"/>
+    </resources>
+</document>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -131,7 +131,7 @@
                     </constraints>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="W8x-bp-pJA">
-                    <rect key="frame" x="10" y="60" width="355" height="607"/>
+                    <rect key="frame" x="0.0" y="60" width="375" height="607"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="d7x-2c-eWu">
                         <size key="itemSize" width="50" height="50"/>
@@ -157,10 +157,10 @@
                 <constraint firstAttribute="trailing" secondItem="r8f-Lh-ufi" secondAttribute="trailing" id="33t-c6-uq4"/>
                 <constraint firstItem="W8x-bp-pJA" firstAttribute="top" secondItem="r8f-Lh-ufi" secondAttribute="bottom" id="Dkq-tM-CSL"/>
                 <constraint firstAttribute="bottom" secondItem="W8x-bp-pJA" secondAttribute="bottom" id="K9y-xg-uLT"/>
-                <constraint firstAttribute="trailing" secondItem="W8x-bp-pJA" secondAttribute="trailing" constant="10" id="NGk-xA-lxf"/>
+                <constraint firstAttribute="trailing" secondItem="W8x-bp-pJA" secondAttribute="trailing" id="NGk-xA-lxf"/>
                 <constraint firstItem="r9Y-jl-XVt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="QSl-MA-bpX"/>
                 <constraint firstAttribute="trailing" secondItem="r9Y-jl-XVt" secondAttribute="trailing" constant="10" id="WGw-Q7-3z3"/>
-                <constraint firstItem="W8x-bp-pJA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="uHd-GM-QPp"/>
+                <constraint firstItem="W8x-bp-pJA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uHd-GM-QPp"/>
                 <constraint firstItem="r9Y-jl-XVt" firstAttribute="top" secondItem="r8f-Lh-ufi" secondAttribute="bottom" constant="30" id="yTj-08-30K"/>
             </constraints>
             <point key="canvasLocation" x="50.5" y="59.5"/>

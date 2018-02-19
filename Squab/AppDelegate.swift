@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import Firebase
 
 
 @UIApplicationMain
@@ -28,11 +29,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #else
             SquabDataCenter.sharedInstance.domain = "http://squab.avartaka.com:9083/"
         #endif
-                
+        
         setUpRootViewController()
         
-        SquabReminderManager.sharedInstance.verifyAndSendLocalNotification()
+        SquabReminderManager.sharedInstance.verifyAndSendLocalNotification(title: "Local Notification Test", body: "The body", userInfo: ["docid":"1234"], date: Date.init(timeIntervalSinceNow: 30), identifier: "Local notif")
+        FirebaseApp.configure()
+        Messaging.messaging().delegate = self
+        UNUserNotificationCenter.current().delegate = self
         
+        SquabReminderManager.sharedInstance.removeAncientReminders()
         return true
     }
     
@@ -71,10 +76,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        SquabReminderManager.sharedInstance.removeAncientReminders()
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        SquabReminderManager.sharedInstance.removeAncientReminders()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -115,13 +122,17 @@ extension AppDelegate {
                 else {
                 }
             }
-            application.registerForRemoteNotifications()
+            DispatchQueue.main.async {
+                application.registerForRemoteNotifications()
+            }
         } else {
             let notificationTypes: UIUserNotificationType = [UIUserNotificationType.alert, UIUserNotificationType.badge, UIUserNotificationType.sound]
             let pushNotificationSettings = UIUserNotificationSettings.init(types: notificationTypes, categories: nil)
             
-            application.registerUserNotificationSettings(pushNotificationSettings)
-            application.registerForRemoteNotifications()
+            DispatchQueue.main.async {
+                application.registerUserNotificationSettings(pushNotificationSettings)
+                application.registerForRemoteNotifications()
+            }
         }
     }
     
@@ -130,8 +141,12 @@ extension AppDelegate {
         var pushToken = String(format: "%@", deviceToken as CVarArg)
         pushToken = pushToken.trimmingCharacters(in: CharacterSet(charactersIn: "<>"))
         pushToken = pushToken.replacingOccurrences(of: " ", with: "")
-        print("DEVICE TOKEN ====== \(pushToken)")
-        SquabUserManager.sharedInstance.saveDeviceToken(deviceToken: pushToken)
+//        print("DEVICE TOKEN ====== \(pushToken)")
+        let fcmToken = Messaging.messaging().fcmToken
+        print("FCM Token on registration = ",fcmToken)
+        if let fcmToken = fcmToken {
+            SquabUserManager.sharedInstance.saveDeviceToken(deviceToken: fcmToken)
+        }
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
@@ -140,6 +155,33 @@ extension AppDelegate {
     
     private func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
         print("Just received remote notification: ",userInfo)
+    }
+}
+
+
+extension AppDelegate : MessagingDelegate {
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        print("DEVICE TOKEN FCM ====== \(fcmToken)")
+        SquabUserManager.sharedInstance.saveDeviceToken(deviceToken: fcmToken)
+    }
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        print("userNotificationCenter willPresent called")
+        
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        print("userNotificationCenter didReceive called")
+        
+        let userinfo = response.notification.request.content.userInfo
+        
+        if userinfo["docid"] != nil {
+//            let searchResult =
+        }
     }
 }
 

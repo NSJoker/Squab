@@ -71,10 +71,9 @@ class SquabDataCenter: NSObject {
         
         let session = URLSession(configuration: configuration)
         
-        print("Connecting URL = \(url)")
+//        print("Connecting URL = \(url)")
         
         session.dataTask(with: request) { (data, response, error) in
-            
             
             DispatchQueue.main.async {
                 if shouldShowLoadingIndicator {
@@ -83,11 +82,12 @@ class SquabDataCenter: NSObject {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 
                 if let data = data {
-                    //print("response data = \(String.init(data: data, encoding: .utf8) ?? "WHAT HAPPEND HERE?")")
+                    print("response data = \(String.init(data: data, encoding: .utf8) ?? "WHAT HAPPEND HERE?")")
                     if let response = response as? HTTPURLResponse, 200...299 ~= response.statusCode {//SUCCESS SCENARIO
                         returnBlock(data, nil)
                     } else {//FAILURE SCENARIO
                         guard let error = error else {
+                            print("response.statusCode = ",(response as? HTTPURLResponse)?.statusCode)
                             returnBlock(nil, "Something went wrong")
                             return
                         }

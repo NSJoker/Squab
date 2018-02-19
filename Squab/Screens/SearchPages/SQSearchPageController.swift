@@ -178,8 +178,7 @@ extension SQSearchPageController:UICollectionViewDelegate, UICollectionViewDataS
                         self.openFileWithLanguage(languageMap: languages.langListMap![0])
                     }
                     else {
-                        self.openFileWithLanguage(language: "En", selectedSearchResult: self.selectedSearchResult!)
-//                        self.showAlertWith(buttonTitle: "OK", message: "Unable to open file, because no language was found!", shouldPopCurrentVC: NO)
+                        self.showAlertWith(buttonTitle: "OK", message: "Unable to open file, because no language was found!", shouldPopCurrentVC: NO)
                     }
                 }
                 else {
